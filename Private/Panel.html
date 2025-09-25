@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0"></script>
+</head>
+<body>
+
+    <h1>Panel de Administración</h1>
+
+    <!-- Formulario para subir Excel -->
+
+<div class="div-forms">
+  <!--Formulario anadir contenido-->
+    <form id="Form-Add">
+      <h2>Anadir contenido</h2>
+  <label for="h1">Título</label>
+  <input type="text" id="h1" name="h1">
+  <label for="Phar">Párrafo</label>
+  <input type="text" id="Phar" placeholder="Agrega un texto">
+  <label for="Phar2">Texto 2</label>
+  <input type="text" id="Phar2" placeholder="Agrega otro texto">
+  <div class="Btns">
+    <article class="btns-art">
+      <input type="file" id="archivoimg" accept="image/*" />
+      <label for="archivoimg" class="boton-subida">Subir imagen</label>
+      <img id="previewImg" style="max-width: 300px; display: none;" />
+      <button class="save" type="submit">Guardar Datos</button>
+    </article>
+    <article class="btns-art">
+    <input type="file" id="archivoExcel" accept=".xlsx, .xls">
+    <label for="archivoExcel" class="boton-subida">Subir Archivo Excel</label>
+    <button onclick="procesarExcel()">Guardar Datos Excel</button>
+    </article>
+  </div>
+</form>
+
+  <!--Formulario Eliminar contenido-->
+ 
+  <form action="" id="Form-Delete">
+     <h2>Borrar contenido</h2>
+    <label for="deleteId">ID del Contenido</label>
+    <input type="number" id="deleteId" name="deleteId" placeholder="Ingresa el Id">
+    <label for="Name-Content">Nombre del Articulo</label>
+    <input type="text" id="Name-Content" name="Name-Content" placeholder="Ingresa el Nombre del Articulo">
+    <button type="submit">Borrar Contenido</button>
+    <button id="Del-All" type="submit">Borrar Todo</button>
+  </form>
+
+</div>
+    
+
+<script>
+  document.getElementById('archivoimg').addEventListener('change', function () {
+    const archivo = this.files[0];
+    if (archivo) {
+      document.querySelector('.boton-subida').textContent = ` ${archivo.name}`;
+    }
+  });
+  
+</script>
+    <!-- Contenedor Preview -->
+    <div id="preview"></div>
+    <script type="module" src="supabase.js"></script>
+    <script type="module" src="panel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    </body>
+</html>

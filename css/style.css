@@ -165,13 +165,13 @@
     font-size: 2rem;
     margin-top: 0.5rem;
     text-align: center;
-  }
+}
   
   
 .blog-container {
     display: flex;
     justify-content: center;
-  } 
+} 
   
   
   
@@ -181,42 +181,61 @@
     justify-content: center; /* Centra horizontalmente las cards */
     gap: 2rem; /* Espacio entre las cards */
     max-width: 1200px;
-  }
+}
   
   
-  .blog-card {
-    flex: 0 1 calc(50% - 2rem); /* 2 columnas con espacio */
+  
+.blog-container {
+    display: flex;
+    justify-content: center;
+}
+  
+.blog-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+}
+  
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 calc(50% - 2rem);
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-  }
+    text-align: center;
+    flex-direction: row;
+}
   
-  .blog-card:hover {
+.blog-card:hover {
     transform: scale(1.02);
-  }
+}
   
-  .blog-card img {
+.blog-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-  }
+}
   
-  .blog-card h2 {
-    margin: 1rem;
+.blog-card h2 {
+    margin: 1rem 1rem 0.5rem;
     font-size: 1.2rem;
-    color: #003366;
+    color: #000000;
   }
   
-  .blog-card p {
+.blog-card p {
     margin: 0 1rem 1rem;
     font-size: 0.95rem;
-  }
+}
   
-  .btn {
-    display: block;
-    margin: 0 1rem 1rem;
+.btn {
+    display: inline-block;
+    margin-bottom: 1rem;
     padding: 0.5rem 1rem;
     background-color: #00cc88;
     color: white;
@@ -224,8 +243,164 @@
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
-  }
+}
   
-  .btn:hover {
+.btn:hover {
     background-color: #00aa77;
   }
+
+
+
+/*historia*/
+
+.historia-santuario{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4rem;
+}
+
+.historia-santuario .card {
+    width: 1400px;
+    height: 500px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.historia-santuario img{
+    width: 600px;
+    height: 500px;
+    border-radius: 15px 0 0 15px;
+}
+
+.historia-santuario .text-card{
+    padding: 4rem;
+    width: 800px;
+}
+
+.historia-santuario .text-card h2{
+    font-size: 2rem;
+    margin: 0 4rem 1.5rem 1.5rem;
+}
+
+.historia-cruz{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4rem;
+}
+
+.historia-cruz .card {
+    width: 1400px;
+    height: 500px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.historia-cruz img{
+    width: 600px;
+    height: 500px;
+    border-radius: 0 15px 15px 0;
+}
+
+.historia-cruz .text-card{
+    padding: 4rem;
+    width: 800px;
+}
+
+.historia-cruz .text-card h2{
+    font-size: 2rem;
+    margin: 0 4rem 1.5rem 1.5rem;
+}
+
+.historia-parque{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4rem;
+}
+
+.historia-parque .card {
+    width: 1400px;
+    height: 500px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.historia-parque img{
+    width: 600px;
+    height: 500px;
+    border-radius: 15px 0 0 15px;
+}
+
+.hhistoria-parque .text-card{
+    padding: 4rem;
+    width: 800px;
+}
+
+.historia-parque .text-card h2{
+    font-size: 2rem;
+    margin: 0 4rem 1.5rem 1.5rem;
+}
+
+.historia-gastronomica{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+}
+
+.historia-gastronomica .card {
+    width: 1400px;
+    height: 500px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.historia-gastronomica img{
+    width: 600px;
+    height: 500px;
+    border-radius: 0 15px 15px 0;
+}
+
+.historia-gastronomica .text-card{
+    padding: 4rem;
+    width: 800px;
+}
+
+.historia-gastronomica .text-card h2{
+    font-size: 2rem;
+    margin: 0 4rem 1.5rem 1.5rem;
+}

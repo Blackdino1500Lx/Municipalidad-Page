@@ -125,7 +125,7 @@ async function procesarExcel() {
 }
 
 async function mostrar(tipo) {
-    let { data, error } = await supabase.from('entradas').select('*');
+    let { data, error } = await supabase.from('').select('*');
     if (error) {
         console.error("Error obteniendo datos:", error);
         return;

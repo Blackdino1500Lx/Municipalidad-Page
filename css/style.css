@@ -198,3 +198,159 @@
   .btn:hover {
     background-color: #00aa77;
   }
+
+
+
+/*historia*/
+
+.historia-santuario{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4rem;
+}
+
+.historia-santuario .card {
+    width: 1400px;
+    height: 500px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.historia-santuario img{
+    width: 600px;
+    height: 500px;
+    border-radius: 15px 0 0 15px;
+}
+
+.historia-santuario .text-card{
+    padding: 4rem;
+    width: 800px;
+}
+
+.historia-santuario .text-card h2{
+    font-size: 2rem;
+    margin: 0 4rem 1.5rem 1.5rem;
+}
+
+.historia-cruz{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4rem;
+}
+
+.historia-cruz .card {
+    width: 1400px;
+    height: 500px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.historia-cruz img{
+    width: 600px;
+    height: 500px;
+    border-radius: 0 15px 15px 0;
+}
+
+.historia-cruz .text-card{
+    padding: 4rem;
+    width: 800px;
+}
+
+.historia-cruz .text-card h2{
+    font-size: 2rem;
+    margin: 0 4rem 1.5rem 1.5rem;
+}
+
+.historia-parque{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4rem;
+}
+
+.historia-parque .card {
+    width: 1400px;
+    height: 500px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.historia-parque img{
+    width: 600px;
+    height: 500px;
+    border-radius: 15px 0 0 15px;
+}
+
+.hhistoria-parque .text-card{
+    padding: 4rem;
+    width: 800px;
+}
+
+.historia-parque .text-card h2{
+    font-size: 2rem;
+    margin: 0 4rem 1.5rem 1.5rem;
+}
+
+.historia-gastronomica{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+}
+
+.historia-gastronomica .card {
+    width: 1400px;
+    height: 500px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.historia-gastronomica img{
+    width: 600px;
+    height: 500px;
+    border-radius: 0 15px 15px 0;
+}
+
+.historia-gastronomica .text-card{
+    padding: 4rem;
+    width: 800px;
+}
+
+.historia-gastronomica .text-card h2{
+    font-size: 2rem;
+    margin: 0 4rem 1.5rem 1.5rem;
+}

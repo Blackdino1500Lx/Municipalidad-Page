@@ -1,9 +1,12 @@
 //Uso de funcion Supabase
 const supabase = window.supabaseInstance;
-//Capturar acciones del form, para enviar Datos a la BAse de Datos
+
+//Agregar Eventos a la Base de Datos
+//Obtener Datos del Formulario
 document.getElementById('Form-Add').addEventListener('submit', async function(e) {
     e.preventDefault();
-//cambiar nombre variables y elementos DOM
+//cambiar nombre variables y elementos DOM. 
+// <<<<REUSAR>>>>
     const titulo = document.getElementById('h1').value;
     const parrafo = document.getElementById('Phar').value;
     const texto2 = document.getElementById('Phar2').value;
@@ -12,6 +15,7 @@ document.getElementById('Form-Add').addEventListener('submit', async function(e)
         let imagen_url = '';
     let nombreArchivoimg = null;
 
+//Agregar Imagen al Storage de Supabase
     if (archivo) {
         const fileName = `${Date.now()}_${archivo.name}`;
         const { data, error: uploadError } = await supabase.storage.from('Img').upload(fileName, archivo);
@@ -25,7 +29,7 @@ document.getElementById('Form-Add').addEventListener('submit', async function(e)
 
         // Definir la URL de la imagen subida
         //Esta URL cambia
-            imagen_url = `https://etqhjkvmazpxrpsudeaa.supabase.co/storage/v1/object/public/Img/${nombreArchivoimg}`;
+            imagen_url = `https://fexilgbdtdhsziincyxn.supabase.co/storage/v1/object/public/Img/${nombreArchivoimg}`;
         // Mostrar la imagen en el preview (img)
         const previewImg = document.getElementById('previewImgme');
         if (previewImg && previewImg.tagName === 'IMG') {
@@ -44,6 +48,8 @@ document.getElementById('Form-Add').addEventListener('submit', async function(e)
         mostrardatos();
     }
 });
+
+
 //FUncion para mostar los datos en la seccion preview del Panel de Administracion
 async function mostrardatos() {
     let { data, error } = await supabase.from('entradas').select('*');
@@ -125,7 +131,7 @@ async function procesarExcel() {
 }
 
 async function mostrar(tipo) {
-    let { data, error } = await supabase.from('').select('*');
+    let { data, error } = await supabase.from('Eventos').select('*');
     if (error) {
         console.error("Error obteniendo datos:", error);
         return;

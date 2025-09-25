@@ -19,8 +19,15 @@
     height: 70%;
     width: 5rem;
     margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
+}
+
+.cont-logo img {
+    width: 80%;
 }
 
 .menu {
@@ -76,6 +83,10 @@
     left: 0;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
+}
+
+.cont-logo-footer img {
+    width: 70%;
 }
 
 .nav-footer {

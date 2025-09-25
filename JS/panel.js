@@ -24,7 +24,7 @@ document.getElementById('Form-Add').addEventListener('submit', async function(e)
             alert('Error al subir la imagen');
             return;
         }
-        //Generar una url a cada imagen subida al storage de la Base de Datos, para despiues insertarla en la pagina
+        //Generar una url a cada imagen subida al storage de la Base de Datos, para despues insertarla en la pagina
         nombreArchivoimg = fileName;
 
         // Definir la URL de la imagen subida
@@ -37,8 +37,9 @@ document.getElementById('Form-Add').addEventListener('submit', async function(e)
             previewImg.style.display = 'block';
         }
     }
-//cambiar "entradas" por nombre de tabla de la base de datos, Ca,bair en el insert el nombre de cada una de las celdas 
-    const { error } = await supabase.from('entradas').insert([{ titulo, parrafo, texto2, imagen_url }]);
+//cambiar "entradas" por nombre de tabla de la base de datos, Ca,bair en el insert el nombre de cada una de las celdas
+//title start end description type location coordinator status 
+    const { error } = await supabase.from('Evento').insert([{ title, start, end, description, type, location, coordinator, status, imagen_url }]);
 
     if (error) {
         console.error("Error guardando:", error);

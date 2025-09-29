@@ -19,9 +19,10 @@
 
 .cont-logo {
     background-color: aliceblue;
-    height: 70%;
-    width: 5rem;
+    height: 80%;
+    width: 8rem;
     margin: 1rem 0;
+    padding: .5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +31,7 @@
 }
 
 .cont-logo img {
-    width: 80%;
+    width: 90%;
 }
 
 .menu {
@@ -47,7 +48,7 @@
     font-weight: bolder;
     transition: all ease-in-out .3s;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .menu a:hover {
@@ -146,11 +147,12 @@
 .canton {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .canton-img {
-    width: 500px;
-    height: 300px;
+    width: 800px;
+    height: 500px;
     background-image: url(../assets/img/alajuelita.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -161,6 +163,18 @@
 .canton-txt {
     width: 500px;
 }
+
+.titulo-main {
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+
+.canton-txt p {
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+}
+
 
 /*Blog*/
 .page-title {

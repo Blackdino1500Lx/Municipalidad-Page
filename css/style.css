@@ -196,7 +196,6 @@
 
 .cont-lugar {
     width: 25%;
-    height: 435px;
     background-color: aliceblue;
     border-radius: 10px;
     box-shadow: 7px 7px 15px #0000006c;
@@ -232,6 +231,21 @@
     cursor: pointer;
     border: solid 2px #f3b74f;
     background-color: transparent;
+}
+
+/*Banner de eventos*/
+
+.banner-eventos {
+    width: 80%;
+    height: 500px;
+    background-image: url(../assets/img/alajuelita.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 25px #0000006f;
+}
+
+.banner-eventos img{
+    width: 400px;
 }
 /*Blog*/
 .page-title {

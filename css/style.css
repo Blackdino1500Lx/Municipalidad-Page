@@ -5,6 +5,7 @@
     font-family: sans-serif;
 }
 
+/*estilos del navegador*/
 .nav {
     width: 100%;
     height: 7rem;
@@ -12,13 +13,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
 }
 
 .cont-logo {
     background-color: aliceblue;
-    height: 70%;
-    width: 5rem;
+    height: 80%;
+    width: 8rem;
     margin: 1rem 0;
+    padding: .5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +31,7 @@
 }
 
 .cont-logo img {
-    width: 80%;
+    width: 90%;
 }
 
 .menu {
@@ -44,7 +48,7 @@
     font-weight: bolder;
     transition: all ease-in-out .3s;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .menu a:hover {
@@ -52,6 +56,8 @@
     text-decoration: underline;
 }
 
+
+/*estilos del footer*/
 .footer {
     background-color: #0070A0;
     color: aliceblue;
@@ -129,42 +135,143 @@
     text-align: center;
 }
 
+/*estilos del main*/
+
+.main {
+    margin-top: 10%;
+    height: 75vh;
+}
+
+/*nuestro canton*/
+
+.canton {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 10rem;
+}
+
+.canton-img {
+    width: 800px;
+    height: 500px;
+    background-image: url(../assets/img/alajuelita.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.459);
+}
+
+.canton-txt {
+    width: 500px;
+}
+
+.titulo-main {
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+
+.canton-txt p {
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+}
+
+
+/*Sitios emblematicos*/
+.lugares {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.titulo-lugares {
+    width: 100%;
+    font-size: 3rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.cont-lugar {
+    width: 25%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 7px 7px 15px #0000006c;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 0 3rem 0;
+}
+
+.cont-lugar img {
+    width: 100%;
+}
+
+
+.titulo-lugar {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.btn-lugar {
+    background-color: #f3b74f;
+    width: 200px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.btn-lugar:hover {
+    cursor: pointer;
+    border: solid 2px #f3b74f;
+    background-color: transparent;
+}
+
+/*Banner de eventos*/
+
+.banner-eventos {
+    width: 80%;
+    height: 500px;
+    background-image: url(../assets/img/alajuelita.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 25px #0000006f;
+}
+
+.banner-eventos img{
+    width: 400px;
+}
 /*Blog*/
 .page-title {
     font-size: 2rem;
     margin-top: 0.5rem;
     text-align: center;
 }
+
+.Title_Blog{
+    text-align: center;
+    padding-top:13rem;
+}
   
   
 .blog-container {
     display: flex;
     justify-content: center;
+    padding-top: 6rem
 } 
-  
-  
-  
-.blog-flexbox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centra horizontalmente las cards */
-    gap: 2rem; /* Espacio entre las cards */
-    max-width: 1200px;
-}
-  
-  
-  
-.blog-container {
-    display: flex;
-    justify-content: center;
-}
   
 .blog-flexbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 65rem;
 }
   
 .blog-card {
@@ -172,13 +279,22 @@
     flex-direction: column;
     align-items: center;
     flex: 0 1 calc(50% - 2rem);
-    background-color: white;
+    background-color: rgb(243, 243, 243);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.409);
     transition: transform 0.3s ease;
-    text-align: center;
     flex-direction: row;
+}
+
+.btn-blog{
+    display: flex;
+    justify-content: center;
+}
+
+.blog-card .btn{
+    display: block;
+    margin: 0 auto;
 }
   
 .blog-card:hover {
@@ -186,8 +302,8 @@
 }
   
 .blog-card img {
-    width: 100%;
-    height: 180px;
+    width: 15rem;
+    height: 200px;
     object-fit: cover;
 }
   
@@ -202,11 +318,11 @@
     font-size: 0.95rem;
 }
   
-.btn {
+.btn-view-more {
     display: inline-block;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #00cc88;
+    background-color: #3BA66A;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -214,162 +330,229 @@
     font-weight: bold;
 }
   
-.btn:hover {
-    background-color: #00aa77;
+.btn-view-more:hover {
+    background-color:   #318a57;
+}
+
+.view-more{
+    display: flex;
+    justify-content: center; 
+    margin: 2rem 0;
+}
+
+/*Blog Template*/
+.page-wrapper {
+  max-width: 1100px;
+  margin: 30px auto;
+  background: #fff;
+  margin: 15rem 30rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.356);
+  padding: 5rem 4rem;
+  
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.feature-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.article-content {
+  margin: 20px 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.action-btn {
+  background: #3BA66A;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  width: 150px;
+  display: block;
+  margin-left: auto;
+}
+
+.action-btn:hover {
+  background: #318a57;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid #ddd;
+  width: 60%;
+  margin: 40px auto;  
+}
+
+.reviews-section {
+  margin: 40px auto;   
+  width: 40%;          
+  text-align: center;
+}
+
+.reviews-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.reviews-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.review-text {
+  font-style: italic;
+}
+
+.see-more-btn {
+  display: block;
+  background: #3BA66A;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  margin: 30px auto 0;
+  width: 150px;
+}
+
+.see-more-btn:hover {
+  background: #318a57;
+}
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: #fff url("../assets/img/fondo_comentarios.png") no-repeat top left;
+    background-size: 400px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+  
+  .modal-content label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+  }
+  
+  .modal-content input,
+  .modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+  
+  .modal-btn {
+    background: #3BA66A;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    cursor: pointer;
+    width: 40%;
+    font-size: 16px;
+  }
+  
+  .modal-btn:hover {
+    background: #318a57;
   }
 
-
-
-/*historia*/
-
-.historia-santuario{
+  .btn-template-modal{
     display: flex;
-    flex-wrap: wrap;
-    margin: 4rem;
-}
+    justify-content: end;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .close:hover {
+    color: #000;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
 
-.historia-santuario .card {
-    width: 1400px;
-    height: 500px;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 1rem auto;
-}
-
-.historia-santuario img{
-    width: 600px;
-    height: 500px;
-    border-radius: 15px 0 0 15px;
-}
-
-.historia-santuario .text-card{
-    padding: 4rem;
-    width: 800px;
-}
-
-.historia-santuario .text-card h2{
-    font-size: 2rem;
-    margin: 0 4rem 1.5rem 1.5rem;
-}
-
-.historia-cruz{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 4rem;
-}
-
-.historia-cruz .card {
-    width: 1400px;
-    height: 500px;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 1rem auto;
-}
-
-.historia-cruz img{
-    width: 600px;
-    height: 500px;
-    border-radius: 0 15px 15px 0;
-}
-
-.historia-cruz .text-card{
-    padding: 4rem;
-    width: 800px;
-}
-
-.historia-cruz .text-card h2{
-    font-size: 2rem;
-    margin: 0 4rem 1.5rem 1.5rem;
-}
-
-.historia-parque{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 4rem;
-}
-
-.historia-parque .card {
-    width: 1400px;
-    height: 500px;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 1rem auto;
-}
-
-.historia-parque img{
-    width: 600px;
-    height: 500px;
-    border-radius: 15px 0 0 15px;
-}
-
-.hhistoria-parque .text-card{
-    padding: 4rem;
-    width: 800px;
-}
-
-.historia-parque .text-card h2{
-    font-size: 2rem;
-    margin: 0 4rem 1.5rem 1.5rem;
-}
-
-.historia-gastronomica{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 2rem;
-}
-
-.historia-gastronomica .card {
-    width: 1400px;
-    height: 500px;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 1rem auto;
-}
-
-.historia-gastronomica img{
-    width: 600px;
-    height: 500px;
-    border-radius: 0 15px 15px 0;
-}
-
-.historia-gastronomica .text-card{
-    padding: 4rem;
-    width: 800px;
-}
-
-.historia-gastronomica .text-card h2{
-    font-size: 2rem;
-    margin: 0 4rem 1.5rem 1.5rem;
-}
+  
+  

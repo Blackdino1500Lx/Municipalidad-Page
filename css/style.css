@@ -239,37 +239,25 @@
     margin-top: 0.5rem;
     text-align: center;
 }
+
+.Title_Blog{
+    text-align: center;
+    padding-top:13rem;
+}
   
   
 .blog-container {
     display: flex;
     justify-content: center;
-    padding-top: 10rem
+    padding-top: 6rem
 } 
-  
-  
-  
-.blog-flexbox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 2rem; 
-    max-width: 1200px;
-}
-  
-  
-  
-.blog-container {
-    display: flex;
-    justify-content: center;
-}
   
 .blog-flexbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 65rem;
 }
   
 .blog-card {
@@ -277,13 +265,22 @@
     flex-direction: column;
     align-items: center;
     flex: 0 1 calc(50% - 2rem);
-    background-color: white;
+    background-color: rgb(243, 243, 243);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.409);
     transition: transform 0.3s ease;
-    text-align: center;
     flex-direction: row;
+}
+
+.btn-blog{
+    display: flex;
+    justify-content: center;
+}
+
+.blog-card .btn{
+    display: block;
+    margin: 0 auto;
 }
   
 .blog-card:hover {
@@ -291,8 +288,8 @@
 }
   
 .blog-card img {
-    width: 100%;
-    height: 180px;
+    width: 15rem;
+    height: 200px;
     object-fit: cover;
 }
   
@@ -311,7 +308,7 @@
     display: inline-block;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #00cc88;
+    background-color: #3BA66A;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -320,7 +317,7 @@
 }
   
 .btn-view-more:hover {
-    background-color: #00aa77;
+    background-color:   #318a57;
 }
 
 .view-more{
@@ -334,9 +331,11 @@
   max-width: 1100px;
   margin: 30px auto;
   background: #fff;
-  padding: 10rem 4rem;
+  margin: 15rem 30rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.356);
+  padding: 5rem 4rem;
+  
 }
 
 .main-title {
@@ -357,7 +356,7 @@
 }
 
 .action-btn {
-  background: #28a745;
+  background: #3BA66A;
   color: #fff;
   padding: 12px 20px;
   border: none;
@@ -371,7 +370,7 @@
 }
 
 .action-btn:hover {
-  background: #218838;
+  background: #318a57;
 }
 
 .divider {
@@ -438,7 +437,7 @@
 
 .see-more-btn {
   display: block;
-  background: #28a745;
+  background: #3BA66A;
   color: #fff;
   padding: 12px 20px;
   border: none;
@@ -451,7 +450,7 @@
 }
 
 .see-more-btn:hover {
-  background: #218838;
+  background: #318a57;
 }
 
 

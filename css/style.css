@@ -397,7 +397,78 @@
   background: #218838;
 }
 
+/*Historia*/
+.banner_historia {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/img/alajuelita.png');
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.banner_historia h1 {
+  color: white;
+  font-size: 5rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
 
-  
-  
+.card {
+    display: flex;
+}
+.contenedor_historia {
+    margin: 5rem;
+    color: #fff;
+}
+.conten_historias2, .conten_historias1{
+    border-radius: 1.5rem;
+    margin-bottom: 4rem;
+}
+.conten_historias1 .card img, .conten_historias2 .card img{
+    width: 40rem;
+}
+.conten_historias1 .card img{
+    border-radius: 1.5rem 0 0 1.5rem;
+}
+.conten_historias2 .card img{
+    border-radius: 0 1.5rem 1.5rem 0;
+}
+.historia-santuario{
+    background: linear-gradient(to top, #3BA66A, #0070A0); 
+}
+.historia-cruz {
+    background: linear-gradient(to top, #FFCE75, #F58220);
+}
+.historia-parque {
+    background: linear-gradient(to top, #3BA66A, #0070A0);
+}
+.historia-gastronomica{
+    background: linear-gradient(to top, #FFCE75, #F58220);
+}
+
+.linea {
+    margin: 2rem 1rem 0 3rem;
+    width: 40rem;
+    height: 0.1rem;
+}
+.linea_verde {
+    background-color: #05B21A;
+}
+.linea_naranja {
+    background-color: #F58220;
+}
+.text-card{
+    text-align: center;
+}
+.text-card h2{
+    margin: 5rem 3rem 0 3rem;
+    font-size: 2rem;
+}
+.text-card p{
+    margin: 2rem 3rem 0 3rem;
+    width: 40rem;
+}
+

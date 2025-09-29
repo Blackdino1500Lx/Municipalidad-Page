@@ -10,16 +10,19 @@
 </head>
 
 <body>
-
     <h1>Panel de Administración</h1>
-
-    <!-- Formulario para subir Excel -->
-
+    <div class="swich">
+        <label for="content-type">¿Qué deseas añadir?</label>
+        <select id="content-type">
+            <option value="evento">Evento</option>
+            <option value="blog">Blog</option>
+        </select>
+    </div>
     <div class="div-forms">
-        <!--Formulario anadir contenido-->
+      <!-- Grupo Evento -->
+      <div class="form-group" id="group-evento">
         <form id="Form-Add-Event">
-            <!--title start end description type location coordinator status-->
-            <h2>Anadir contenido</h2>
+            <h2>Agregar Evento</h2>
             <label for="title">Título</label>
             <input type="text" id="title" name="title">
             <label for="start">Fecha Inicio</label>
@@ -40,7 +43,6 @@
                 <option value="confirmado">Confirmado</option>
                 <option value="cancelado">Cancelado</option>
             </select>
-
             <div class="Btns">
                 <article class="btns-art">
                     <input type="file" id="archivoimg" accept="image/*" />
@@ -55,8 +57,20 @@
                 </article>
             </div>
         </form>
-        <form id="Form-Add-Blog">
-            <h2>Anadir contenido</h2>
+        <form action="" id="Form-Delete-Event">
+            <h2>Borrar Evento</h2>
+            <label for="deleteId">ID del Evento</label>
+            <input type="number" id="deleteId" name="deleteId" placeholder="Ingresa el Id">
+            <label for="Name-Content">Nombre del Evento</label>
+            <input type="text" id="Name-Content" name="Name-Content" placeholder="Ingresa el Nombre del Evento">
+            <button type="submit">Borrar Evento</button>
+            <button id="Del-All-Event" type="submit">Borrar Todos</button>
+        </form>
+      </div>
+      <!-- Grupo Blog -->
+      <div class="form-group" id="group-blog" style="display:none;">
+        <form id="Form-Add">
+            <h2>Agregar Blog</h2>
             <label for="h1">Título</label>
             <input type="text" id="h1" name="h1">
             <label for="Phar">Párrafo</label>
@@ -77,35 +91,36 @@
                 </article>
             </div>
         </form>
-
-        <!--Formulario Eliminar contenido-->
-
-        <form action="" id="Form-Delete">
-            <h2>Borrar contenido</h2>
-            <label for="deleteId">ID del Contenido</label>
-            <input type="number" id="deleteId" name="deleteId" placeholder="Ingresa el Id">
-            <label for="Name-Content">Nombre del Articulo</label>
-            <input type="text" id="Name-Content" name="Name-Content" placeholder="Ingresa el Nombre del Articulo">
-            <button type="submit">Borrar Contenido</button>
-            <button id="Del-All" type="submit">Borrar Todo</button>
+        <form action="" id="Form-Delete-Blog">
+            <h2>Borrar Blog</h2>
+            <label for="deleteIdBlog">ID del Blog</label>
+            <input type="number" id="deleteIdBlog" name="deleteIdBlog" placeholder="Ingresa el Id">
+            <label for="Name-Content-Blog">Nombre del Blog</label>
+            <input type="text" id="Name-Content-Blog" name="Name-Content-Blog" placeholder="Ingresa el Nombre del Blog">
+            <button type="submit">Borrar Blog</button>
+            <button id="Del-All-Blog" type="submit">Borrar Todos</button>
         </form>
-
+      </div>
     </div>
 
-
     <script>
-        document.getElementById('archivoimg').addEventListener('change', function () {
-            const archivo = this.files[0];
-            if (archivo) {
-                document.querySelector('.boton-subida').textContent = ` ${archivo.name}`;
-            }
-        });
-
+      // Mostrar/ocultar formularios según selección
+      document.getElementById('content-type').addEventListener('change', function() {
+        const tipo = this.value;
+        document.getElementById('group-evento').style.display = (tipo === 'evento') ? 'flex' : 'none';
+        document.getElementById('group-blog').style.display = (tipo === 'blog') ? 'flex' : 'none';
+        // Llama a la función de preview si existe
+        if (window.mostrar) window.mostrar(tipo);
+      });
+      // Estilo flex para los grupos
+      document.getElementById('group-evento').style.display = 'flex';
+      document.getElementById('group-evento').style.flexDirection = 'row';
+      document.getElementById('group-blog').style.flexDirection = 'row';
     </script>
     <!-- Contenedor Preview -->
     <div id="preview"></div>
-    <script type="module" src="supabase.js"></script>
-    <script type="module" src="panel.js"></script>
+    <script type="module" src="../JS/supabase.js"></script>
+    <script type="module" src="../JS/panel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </body>
 

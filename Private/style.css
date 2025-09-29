@@ -1,3 +1,33 @@
+/* Estilo personalizado para el select de tipo de contenido */
+#content-type {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid #71A5DE;
+    background: #f9f9f9;
+    color: #333;
+    font-size: 1rem;
+    margin: .5rem 0 2rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+    box-shadow: 0 2px 8px rgba(113,165,222,0.08);
+}
+#content-type:focus {
+    border-color: #4CAF50;
+}
+.swich{
+    background-color: #97b8cf;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+/* Espacio entre formularios de cada grupo */
+.form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -13,6 +43,8 @@ display: flex;
 justify-content: space-evenly;
 background-color: #97b8cf;
 padding: 3rem;
+gap: 10rem;
+
 
 }
 
@@ -67,7 +99,8 @@ button:hover {
 input[type="file"] {
     display: none;
 }
-#Del-All{
+/* Botón de borrar todo (estilo original) */
+#Del-All, #Del-All-Event, #Del-All-Blog {
     background-color: #cc0000;
     width: 10rem;
     padding: 8px;
@@ -76,6 +109,24 @@ input[type="file"] {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+#Del-All:hover, #Del-All-Event:hover, #Del-All-Blog:hover {
+    background-color: #a30000;
+}
+
+/* Formulario de borrar (alineación y separación) */
+form[id^="Form-Delete"] {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    background: #f9f9f9;
+    width: 25rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .boton-subida {
     width: 9rem;
@@ -129,5 +180,14 @@ input[type="file"] {
 
 .card:hover {
     transform: scale(1.05);
+}
+
+/*Login*/
+.pass{
+align-content: center;
+margin: 0 auto;
+}
+.btn-log{
+    margin: 0 auto;
 }
 

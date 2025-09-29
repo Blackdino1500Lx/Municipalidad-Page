@@ -3,22 +3,31 @@ const supabase = window.supabaseInstance;
 
 //Agregar Eventos a la Base de Datos
 //Obtener Datos del Formulario
-document.getElementById('Form-Add').addEventListener('submit', async function(e) {
+document.getElementById('Form-Add-Event').addEventListener('submit', async function(e) {
     e.preventDefault();
 //cambiar nombre variables y elementos DOM. 
 // <<<<REUSAR>>>>
-    const titulo = document.getElementById('h1').value;
-    const parrafo = document.getElementById('Phar').value;
-    const texto2 = document.getElementById('Phar2').value;
-    const archivoimg = document.getElementById('archivoimg');
+    const title = document.getElementById('title').value;
+    const start = document.getElementById('Ini-Date').value;
+    const end = document.getElementById('End-Date').value;
+    const description = document.getElementById('Description').value;
+    const type = document.getElementById('type').value;
+    const location = document.getElementById('Location').value;
+    const coordinator = document.getElementById('Coordinator').value;
+    const status = document.getElementById('status').value;
+    /*const archivoimg = document.getElementById('archivoimg');
     const archivo = archivoimg.files[0];
-        let imagen_url = '';
+    let imagen_url = '';
     let nombreArchivoimg = null;
+//Colocar imagen y guardarla
+    
 
-//Agregar Imagen al Storage de Supabase
+
+
+    //Agregar Imagen al Storage de Supabase
     if (archivo) {
         const fileName = `${Date.now()}_${archivo.name}`;
-        const { data, error: uploadError } = await supabase.storage.from('Img').upload(fileName, archivo);
+        const { data, error: uploadError } = await supabase.storage.from('img').upload(fileName, archivo);
         if (uploadError) {
             console.error('Error subiendo imagen:', uploadError);
             alert('Error al subir la imagen');
@@ -29,18 +38,21 @@ document.getElementById('Form-Add').addEventListener('submit', async function(e)
 
         // Definir la URL de la imagen subida
         //Esta URL cambia
-            imagen_url = `https://fexilgbdtdhsziincyxn.supabase.co/storage/v1/object/public/Img/${nombreArchivoimg}`;
+            imagen_url = `https://fexilgbdtdhsziincyxn.supabase.co/storage/v1/object/public/img/${nombreArchivoimg}`;
         // Mostrar la imagen en el preview (img)
         const previewImg = document.getElementById('previewImgme');
         if (previewImg && previewImg.tagName === 'IMG') {
             previewImg.src = imagen_url;
             previewImg.style.display = 'block';
         }
-    }
+    }*/
+    
+
+
 //cambiar "entradas" por nombre de tabla de la base de datos, Ca,bair en el insert el nombre de cada una de las celdas
 //title start end description type location coordinator status 
-    const { error } = await supabase.from('Evento').insert([{ title, start, end, description, type, location, coordinator, status, imagen_url }]);
-
+    const { error } = await supabase.from('Eventos').insert([{ title, start, end, description, type, location, coordinator, status }]);
+//imagen_url 
     if (error) {
         console.error("Error guardando:", error);
         alert("Error guardando los datos");
@@ -51,9 +63,9 @@ document.getElementById('Form-Add').addEventListener('submit', async function(e)
 });
 
 
-//FUncion para mostar los datos en la seccion preview del Panel de Administracion
+//Funcion para mostar los datos en la seccion preview del Panel de Administracion
 async function mostrardatos() {
-    let { data, error } = await supabase.from('entradas').select('*');
+    let { data, error } = await supabase.from('Eventos').select('*');
 // pide los datos a SUpabase mediante el anon key
     if (error) {
         console.error("Error obteniendo datos:", error);
@@ -168,7 +180,7 @@ document.getElementById('Form-Delete').addEventListener('submit', async function
   const borrarTodo = e.submitter && e.submitter.id === 'Del-All';
   if (borrarTodo) {
     // Borrar todos los datos
-    const { error } = await supabase.from('entradas').delete().neq('id', 0);
+    const { error } = await supabase.from('Eventos').delete().neq('id', 0);
     if (error) {
       alert('Error borrando todos los contenidos');
       console.error(error);
@@ -186,7 +198,7 @@ document.getElementById('Form-Delete').addEventListener('submit', async function
     return;
   }
   const { error } = await supabase
-    .from('entradas')
+    .from('Eventos')
     .delete()
     .match({ id, titulo: nombre });
   if (error) {

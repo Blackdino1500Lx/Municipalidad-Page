@@ -164,6 +164,16 @@
     width: 500px;
 }
 
+.titulo-main {
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+
+.canton-txt p {
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+}
 
 
 /*Blog*/

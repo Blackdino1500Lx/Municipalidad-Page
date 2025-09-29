@@ -55,6 +55,7 @@
     text-decoration: underline;
 }
 
+
 /*estilos del footer*/
 .footer {
     background-color: #0070A0;
@@ -160,6 +161,7 @@
 .canton-txt {
     width: 500px;
 }
+
 /*Blog*/
 .page-title {
     font-size: 2rem;
@@ -171,6 +173,7 @@
 .blog-container {
     display: flex;
     justify-content: center;
+    padding-top: 10rem
 } 
   
   
@@ -178,8 +181,8 @@
 .blog-flexbox {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centra horizontalmente las cards */
-    gap: 2rem; /* Espacio entre las cards */
+    justify-content: center; 
+    gap: 2rem; 
     max-width: 1200px;
 }
   
@@ -233,7 +236,7 @@
     font-size: 0.95rem;
 }
   
-.btn {
+.btn-view-more {
     display: inline-block;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
@@ -245,162 +248,142 @@
     font-weight: bold;
 }
   
-.btn:hover {
+.btn-view-more:hover {
     background-color: #00aa77;
-  }
+}
 
-
-
-/*historia*/
-
-.historia-santuario{
+.view-more{
     display: flex;
-    flex-wrap: wrap;
-    margin: 4rem;
+    justify-content: center; 
+    margin: 2rem 0;
 }
 
-.historia-santuario .card {
-    width: 1400px;
-    height: 500px;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 1rem auto;
+/*Blog Template*/
+.page-wrapper {
+  max-width: 1100px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 10rem 4rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.historia-santuario img{
-    width: 600px;
-    height: 500px;
-    border-radius: 15px 0 0 15px;
+.main-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
 }
 
-.historia-santuario .text-card{
-    padding: 4rem;
-    width: 800px;
+.feature-image img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.historia-santuario .text-card h2{
-    font-size: 2rem;
-    margin: 0 4rem 1.5rem 1.5rem;
+.article-content {
+  margin: 20px 0;
+  line-height: 1.6;
+  text-align: justify;
 }
 
-.historia-cruz{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 4rem;
+.action-btn {
+  background: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  width: 150px;
+  display: block;
+  margin-left: auto;
 }
 
-.historia-cruz .card {
-    width: 1400px;
-    height: 500px;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 1rem auto;
+.action-btn:hover {
+  background: #218838;
 }
 
-.historia-cruz img{
-    width: 600px;
-    height: 500px;
-    border-radius: 0 15px 15px 0;
+.divider {
+  border: none;
+  border-top: 2px solid #ddd;
+  width: 60%;
+  margin: 40px auto;  
 }
 
-.historia-cruz .text-card{
-    padding: 4rem;
-    width: 800px;
+.reviews-section {
+  margin: 40px auto;   
+  width: 40%;          
+  text-align: center;
 }
 
-.historia-cruz .text-card h2{
-    font-size: 2rem;
-    margin: 0 4rem 1.5rem 1.5rem;
+.reviews-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
 }
 
-.historia-parque{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 4rem;
+.reviews-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.historia-parque .card {
-    width: 1400px;
-    height: 500px;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 1rem auto;
+.review-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.historia-parque img{
-    width: 600px;
-    height: 500px;
-    border-radius: 15px 0 0 15px;
+.review-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.hhistoria-parque .text-card{
-    padding: 4rem;
-    width: 800px;
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-weight: bold;
 }
 
-.historia-parque .text-card h2{
-    font-size: 2rem;
-    margin: 0 4rem 1.5rem 1.5rem;
+.name {
+  font-weight: bold;
 }
 
-.historia-gastronomica{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 2rem;
+.review-text {
+  font-style: italic;
 }
 
-.historia-gastronomica .card {
-    width: 1400px;
-    height: 500px;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Degradado vertical */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 1rem auto;
+.see-more-btn {
+  display: block;
+  background: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  margin: 30px auto 0;
+  width: 150px;
 }
 
-.historia-gastronomica img{
-    width: 600px;
-    height: 500px;
-    border-radius: 0 15px 15px 0;
+.see-more-btn:hover {
+  background: #218838;
 }
 
-.historia-gastronomica .text-card{
-    padding: 4rem;
-    width: 800px;
-}
 
-.historia-gastronomica .text-card h2{
-    font-size: 2rem;
-    margin: 0 4rem 1.5rem 1.5rem;
-}
+
+  
+  

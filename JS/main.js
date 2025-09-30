@@ -20,4 +20,4 @@ dots.forEach((dot, i) => {
 setInterval(() => {
   let next = (index + 1) % total;
   mostrarNoticia(next);
-}, 5000);
+}, 8000);

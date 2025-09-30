@@ -552,6 +552,8 @@
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
   }
+
+
   /*Historia*/
 .banner_historia {
   width: 100vw;
@@ -575,15 +577,21 @@
     display: flex;
 }
 .contenedor_historia {
-    margin: 5rem;
+    width: 100%;
+    max-width: 80rem;
+    padding: 2rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: #fff;
 }
-.conten_historias2, .conten_historias1{
-    border-radius: 1.5rem;
-    margin-bottom: 4rem;
+.conten_historias1 {
+    background: linear-gradient(to top, #3BA66A, #0070A0); 
 }
-.conten_historias1 .card img, .conten_historias2 .card img{
-    width: 40rem;
+.conten_historias2 {
+    background: linear-gradient(to top, #FFCE75, #F58220);
 }
 .conten_historias1 .card img{
     border-radius: 1.5rem 0 0 1.5rem;
@@ -591,17 +599,12 @@
 .conten_historias2 .card img{
     border-radius: 0 1.5rem 1.5rem 0;
 }
-.historia-santuario{
-    background: linear-gradient(to top, #3BA66A, #0070A0); 
+.conten_historias2, .conten_historias1{
+    border-radius: 1.5rem;
+    margin-bottom: 4rem;
 }
-.historia-cruz {
-    background: linear-gradient(to top, #FFCE75, #F58220);
-}
-.historia-parque {
-    background: linear-gradient(to top, #3BA66A, #0070A0);
-}
-.historia-gastronomica{
-    background: linear-gradient(to top, #FFCE75, #F58220);
+.conten_historias1 .card img, .conten_historias2 .card img{
+    width: 40rem;
 }
 
 .linea {
@@ -615,15 +618,47 @@
 .linea_naranja {
     background-color: #F58220;
 }
-.text-card{
+.text-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;      
     text-align: center;
+    padding: 2rem;
+    width: 100%;
 }
 .text-card h2{
-    margin: 5rem 3rem 0 3rem;
     font-size: 2rem;
 }
 .text-card p{
-    margin: 2rem 3rem 0 3rem;
+    margin-top: 2rem;
     width: 40rem;
 }
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card img {
+    border-radius: 1.5rem 1.5rem 0 0 !important;
+  }
+
+  .text-card {
+    padding: 1rem;
+  }
+
+  .text-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .text-card p {
+    font-size: 1rem;
+  }
+
+  .linea {
+    margin: 1rem auto 0 auto;
+  }
+}
+
+
 

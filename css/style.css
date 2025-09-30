@@ -284,16 +284,29 @@
 /*Banner de eventos*/
 
 .banner-eventos {
-    width: 80%;
-    height: 500px;
+    width: 90%;
+    height: 200px;
     background-image: url(../assets/img/alajuelita.png);
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     box-shadow: 10px 10px 25px #0000006f;
+    margin: 0 auto;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.titulo-eventos {
+  font-size: 3rem;
+  max-width: 70%;
+  color: white;
 }
 
 .banner-eventos img{
-    width: 400px;
+    width: 200px;
+    height: auto;
 }
 /*Blog*/
 .page-title {

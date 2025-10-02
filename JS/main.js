@@ -21,3 +21,12 @@ setInterval(() => {
   let next = (index + 1) % total;
   mostrarNoticia(next);
 }, 8000);
+
+let burger = document.querySelector(".burger");
+let menu = document.querySelector(".menu");
+
+burger.addEventListener("click", () =>{
+  burger.classList.toggle("burger-activo");
+  menu.classList.toggle("menu-activo");
+  console.log("click");
+})

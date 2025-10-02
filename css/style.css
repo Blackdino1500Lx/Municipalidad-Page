@@ -556,15 +556,16 @@
 
   /*Historia*/
 .banner_historia {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   background-image: url('../assets/img/alajuelita.png');
-  background-size: cover;       
-  background-position: center;  
-  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .banner_historia h1 {
@@ -574,75 +575,105 @@
 }
 
 .card {
-    display: flex;
+  display: flex;
 }
+
 .contenedor_historia {
-    width: 100%;
-    max-width: 80rem;
-    padding: 2rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
+  width: 100%;
+  max-width: 80rem;
+  padding: 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-sizing: border-box;
 }
-.conten_historias1 {
-    background: linear-gradient(to top, #3BA66A, #0070A0); 
-}
+
+.conten_historias1,
 .conten_historias2 {
-    background: linear-gradient(to top, #FFCE75, #F58220);
+  background: linear-gradient(to top, #3BA66A, #0070A0); 
+  border-radius: 1.5rem;
+  margin-bottom: 4rem;
+  width: 100%;
 }
-.conten_historias1 .card img{
-    border-radius: 1.5rem 0 0 1.5rem;
+
+.conten_historias2 {
+  background: linear-gradient(to top, #FFCE75, #F58220);
 }
-.conten_historias2 .card img{
-    border-radius: 0 1.5rem 1.5rem 0;
+
+.conten_historias1 .card img,
+.conten_historias2 .card img {
+  width: clamp(200px, 40vw, 600px); 
+  height: auto;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  flex-shrink: 1;
 }
-.conten_historias2, .conten_historias1{
-    border-radius: 1.5rem;
-    margin-bottom: 4rem;
+
+.conten_historias1 .card img {
+  border-radius: 1.5rem 0 0 1.5rem;
 }
-.conten_historias1 .card img, .conten_historias2 .card img{
-    width: 40rem;
+
+.conten_historias2 .card img {
+  border-radius: 0 1.5rem 1.5rem 0;
 }
 
 .linea {
-    margin: 2rem 1rem 0 3rem;
-    width: 40rem;
-    height: 0.1rem;
+  margin: 2rem auto 0 auto;
+  width: 80%;
+  max-width: 600px;
+  height: 0.1rem;
 }
+
 .linea_verde {
-    background-color: #05B21A;
+  background-color: #05B21A;
 }
+
 .linea_naranja {
-    background-color: #F58220;
+  background-color: #F58220;
 }
+
 .text-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;  
-    align-items: center;      
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
-.text-card h2{
-    font-size: 2rem;
+
+.text-card h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
-.text-card p{
-    margin-top: 2rem;
-    width: 40rem;
+
+.text-card p {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
+
 @media (max-width: 768px) {
   .card {
     flex-direction: column;
+    border-radius: 2rem;
   }
 
   .card img {
+    width: 100% !important;
+    height: auto;
+    object-fit: cover;
     border-radius: 1.5rem 1.5rem 0 0 !important;
+    order: -1; 
   }
 
+  .conten_historias2{
+    background: linear-gradient(to top, #e1b767, #ff7700);
+  }
   .text-card {
     padding: 1rem;
   }

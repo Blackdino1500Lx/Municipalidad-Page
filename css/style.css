@@ -379,7 +379,7 @@
 
 .banner-eventos {
     width: 90%;
-    height: 200px;
+    height: 400px;
     background-image: url(../assets/img/alajuelita.png);
     background-size: cover;
     background-position: center;
@@ -387,22 +387,83 @@
     box-shadow: 10px 10px 25px #0000006f;
     margin: 0 auto;
     margin-top: 10rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+}
+
+.cal-back{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #0000005b;
 }
 
 .titulo-eventos {
   font-size: 3rem;
   max-width: 70%;
   color: white;
+  font-weight: 900;
 }
 
 .banner-eventos img{
-    width: 200px;
+    width: 300px;
     height: auto;
 }
+
+.items-eventos button{
+  margin-top: 2rem;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 1rem 5rem;
+  background: linear-gradient(45deg, #0070A0, #14ac56);
+}
+
+/*Seccion de contenidos*/
+
+.cont-contenidos {
+  margin-top: 5rem;
+}
+
+.contenidos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.contenidos img {
+  width: 300px;
+  border-radius: 20px;
+}
+
+.contenido-txt {
+  width: 40%;
+  color: white;
+  height: 300px;
+}
+
+.contenido-txt h4 {
+  font-size: 3rem;
+}
+
+.contenido-txt p {
+  font-size: 1.3rem;
+  margin-top: 3rem;
+}
+.contenidos:first-child {
+  background-color: #F9B233;
+  height: 400px;
+  width: 70%;
+  border-top-right-radius: 500px;
+  border-bottom-right-radius: 500px;
+}
+
+
 /*Blog*/
 .page-title {
     font-size: 2rem;

@@ -363,7 +363,7 @@
 .btn-lugar {
     background-color: #f3b74f;
     width: 200px;
-    border: 2px solid transparent;
+    border: 4px solid transparent;
     border-radius: 10px;
     padding: 1rem;
     font-size: 1.5rem;
@@ -371,7 +371,7 @@
 
 .btn-lugar:hover {
     cursor: pointer;
-    border: solid 2px #f3b74f;
+    border: solid 4px #f3b74f;
     background-color: transparent;
 }
 
@@ -426,6 +426,8 @@
 
 .cont-contenidos {
   margin-top: 5rem;
+  position: relative;
+  height: 1500px;
 }
 
 .contenidos {
@@ -452,11 +454,35 @@
 }
 
 .contenido-txt p {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   margin-top: 3rem;
 }
+
+.contenidos {
+  position: absolute;
+}
+
 .contenidos:first-child {
   background-color: #F9B233;
+  height: 400px;
+  width: 70%;
+  border-top-right-radius: 500px;
+  border-bottom-right-radius: 500px;
+}
+
+.contenidos:nth-child(2) {
+  background-color: #0070A0;
+  height: 400px;
+  width: 70%;
+  right: 0;
+  top: 500px;
+  border-top-left-radius: 500px;
+  border-bottom-left-radius: 500px;
+}
+
+.contenidos:last-child {
+  background-color: #318a57;
+  top: 1000px;
   height: 400px;
   width: 70%;
   border-top-right-radius: 500px;

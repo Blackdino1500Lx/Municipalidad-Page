@@ -16,27 +16,28 @@
         <select id="content-type">
             <option value="evento">Evento</option>
             <option value="blog">Blog</option>
+            <option value="banner">Banner</option>
         </select>
     </div>
     <div class="div-forms">
       <!-- Grupo Evento -->
-      <div class="form-group" id="group-evento">
+    <div class="form-group" id="group-evento">
         <form id="Form-Add-Event">
             <h2>Agregar Evento</h2>
             <label for="title">Título</label>
             <input type="text" id="title" name="title">
             <label for="start">Fecha Inicio</label>
-            <input type="date" id="Ini-Date" >
+            <input type="date" id="start" >
             <label for="end">Fecha de Finalizacion</label>
-            <input type="date" id="End-Date" >
-            <label for="Description">Description</label>
-            <input type="text" id="Description" placeholder="Descripcion del evento">
+            <input type="date" id="end" >
+            <label for="description">Description</label>
+            <input type="text" id="description" placeholder="Descripcion del evento">
             <label for="type">Tipo de Evento</label>
             <input type="text" id="type" placeholder="Ejemplo Cultural, Deportivo">
-            <label for="Location">Ubicacion</label>
-            <input type="text" id="Location" placeholder="Parque, Cancha, Salon">
-            <label for="Coordinator">Coordinador</label>
-            <input type="text" id="Coordinator" placeholder="Nombre de Coordninador">
+            <label for="location">Ubicacion</label>
+            <input type="text" id="location" placeholder="Parque, Cancha, Salon">
+            <label for="coordinator">Coordinador</label>
+            <input type="text" id="coordinator" placeholder="Nombre de Coordinador">
             <label for="status">estado del evento</label>
             <select id="status"> 
                 <option value="pendiente">Pendiente</option>
@@ -68,15 +69,15 @@
         </form>
       </div>
       <!-- Grupo Blog -->
-      <div class="form-group" id="group-blog" style="display:none;">
+    <div class="form-group" id="group-blog" style="display:none;">
         <form id="Form-Add">
             <h2>Agregar Blog</h2>
-            <label for="h1">Título</label>
-            <input type="text" id="h1" name="h1">
-            <label for="Phar">Párrafo</label>
-            <input type="text" id="Phar" placeholder="Agrega un texto">
-            <label for="Phar2">Texto 2</label>
-            <input type="text" id="Phar2" placeholder="Agrega otro texto">
+            <label for="title">Título</label>
+            <input type="text" id="title" name="title">
+            <label for="phar">Párrafo</label>
+            <input type="text" id="phar" name="phar" placeholder="Agrega un texto">
+            <label for="phar2">Parrafo 2</label>
+            <input type="text" id="phar2" name="phar2" placeholder="Agrega otro texto">
             <div class="Btns">
                 <article class="btns-art">
                     <input type="file" id="archivoimg" accept="image/*" />
@@ -101,21 +102,56 @@
             <button id="Del-All-Blog" type="submit">Borrar Todos</button>
         </form>
       </div>
+      <!-- Grupo Banner (apartado independiente) -->
+    <div class="form-group" id="group-banner">
+        <form id="Form-Add-Banner">
+            <h2>Agregar Banner</h2>
+            <label for="name">Nombre del Banner</label>
+            <input type="text" id="name" name="name" placeholder="Nombre del banner">
+            <div class="Btns">
+                <article class="btns-art">
+                    <input type="file" id="banner-img" accept="image/*" />
+                    <label for="banner-img" class="boton-subida">Subir imagen</label>
+                    <img id="previewBannerImg" style="max-width: 300px; display: none;" />
+                    <button class="save" type="submit">Guardar Banner</button>
+                </article>
+            </div>
+        </form>
+        <form id="Form-Delete-Banner">
+            <h2>Borrar Banner</h2>
+            <label for="deleteBannerId">ID del Banner</label>
+            <input type="text" id="deleteBannerId" name="deleteBannerId" placeholder="ID del banner">
+            <label for="deleteBannerName">Nombre del Banner</label>
+            <input type="text" id="deleteBannerName" name="deleteBannerName" placeholder="Nombre del banner">
+            <button type="submit">Borrar Banner</button>
+            <button id="Del-All-Banner" type="submit">Borrar Todos</button>
+    </form>
+      </div>
     </div>
 
     <script>
-      // Mostrar/ocultar formularios según selección
-      document.getElementById('content-type').addEventListener('change', function() {
-        const tipo = this.value;
-        document.getElementById('group-evento').style.display = (tipo === 'evento') ? 'flex' : 'none';
-        document.getElementById('group-blog').style.display = (tipo === 'blog') ? 'flex' : 'none';
-        // Llama a la función de preview si existe
-        if (window.mostrar) window.mostrar(tipo);
-      });
-      // Estilo flex para los grupos
-      document.getElementById('group-evento').style.display = 'flex';
-      document.getElementById('group-evento').style.flexDirection = 'row';
-      document.getElementById('group-blog').style.flexDirection = 'row';
+            // Mostrar/ocultar formularios y actualizar preview según selección
+            document.getElementById('content-type').addEventListener('change', function() {
+                const tipo = this.value;
+                document.getElementById('group-evento').style.display = (tipo === 'evento') ? 'flex' : 'none';
+                document.getElementById('group-blog').style.display = (tipo === 'blog') ? 'flex' : 'none';
+                document.getElementById('group-banner').style.display = (tipo === 'banner') ? 'flex' : 'none';
+                // Limpiar el preview antes de mostrar el nuevo contenido
+                document.getElementById('preview').innerHTML = '';
+                if (tipo === 'evento' && window.mostrardatos) {
+                    window.mostrardatos();
+                } else if (tipo === 'blog' && window.mostrardatosBlog) {
+                    window.mostrardatosBlog();
+                } else if (tipo === 'banner' && window.mostrardatosBanner) {
+                    window.mostrardatosBanner();
+                }
+            });
+            // Estilo flex para los grupos
+            document.getElementById('group-evento').style.display = 'flex';
+            document.getElementById('group-evento').style.flexDirection = 'row';
+            document.getElementById('group-blog').style.flexDirection = 'row';
+            document.getElementById('group-banner').style.display = 'none';
+            document.getElementById('group-banner').style.flexDirection = 'row';
     </script>
     <!-- Contenedor Preview -->
     <div id="preview"></div>

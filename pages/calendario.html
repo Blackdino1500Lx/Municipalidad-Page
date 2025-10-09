@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
-<html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" lang="es" content="historia,gastronomia,parque,cultura">
-    <meta name="description" lang="es" content="Pagina que habla sobre la historia y la cultura de Alajuelita">
-    <title>Calendario Pantalla Completa</title>
+    <meta charset="utf-8" />
+    <title>Calendario</title>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
 
     <style>
-      /* ======== ESTRUCTURA GENERAL ======== */
+      /* ======== RESETEO ======== */
       html,
       body {
         height: 100%;
+        width: 100%;
         margin: 0;
         padding: 0;
         font-family: "Arial", sans-serif;
-        background-color: #fff;
         display: flex;
         flex-direction: column;
+        background-color: #fff;
+      }
+
+      /* ======== ENCABEZADO ======== */
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #000;
+        margin: 20px 0 10px 0;
       }
 
       /* ======== BARRA DE MESES ======== */
@@ -28,50 +34,74 @@
         grid-template-columns: repeat(12, 1fr);
         width: 100%;
         text-align: center;
-        height: 8vh;
+        border: 2px solid #ffffff;
+        border-radius: 0;
+        box-sizing: border-box;
       }
 
       #month-toolbar button {
-        border: 1px solid #ccc;
-        background-color: #fafafa;
-        font-weight: bold;
-        color: #333;
-        cursor: pointer;
-        transition: all 0.25s ease;
+        border: none;
+        background: none;
+        color: #b0b0b0;
         font-size: 1rem;
+        font-weight: bold;
+        padding: 15px 0;
+        cursor: pointer;
+        transition: all 0.2s ease;
         width: 100%;
-        height: 100%;
       }
 
       #month-toolbar button:hover {
-        background-color: #f0f0f0;
-      }
-
-      .active {
-        background-color: #ffe066 !important;
-        border-color: #f7c948 !important;
         color: #000;
       }
 
-      /* ======== CALENDARIO ======== */
-      #calendar {
-        flex: 1;
-        width: 100%;
-        max-width: 100%;
+      #month-toolbar button.active {
+        color: #000;
+        background-color: #fef9c3; /* fondo amarillo suave */
       }
 
+      /* ======== CONTENEDOR DEL CALENDARIO ======== */
+      #calendar {
+        flex: 1; /* ocupa todo el espacio restante */
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+
+      /* ======== ESTILOS DE FULLCALENDAR ======== */
       .fc {
         height: 100%;
       }
 
+      .fc-toolbar-title {
+        color: #f59e0b; /* naranja */
+        font-weight: bold;
+        font-size: 1.8rem !important;
+        
+      }
+
+      .fc-col-header-cell-cushion {
+        color: #9ca3af;
+        font-weight: bold;
+      }
+
+      .fc-day-today {
+        background-color: #fff9c4 !important; /* amarillo claro */
+      }
+
+      .fc-scrollgrid {
+        border: none !important;
+      }
+
       .fc-daygrid-day {
-        border: 1px solid #ddd;
-        box-sizing: border-box;
+        border: none !important;
       }
     </style>
   </head>
 
   <body>
+    <h1>Calendario</h1>
+
     <!-- Barra de meses -->
     <div id="month-toolbar"></div>
 
@@ -82,35 +112,21 @@
       document.addEventListener("DOMContentLoaded", function () {
         const calendarEl = document.getElementById("calendar");
 
-        // Crear el calendario
         const calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: "dayGridMonth",
           locale: "es",
           firstDay: 1,
-          headerToolbar: false,
+          headerToolbar: {
+            start: "",
+            center: "title",
+            end: "",
+          },
           titleFormat: { year: "numeric", month: "long" },
-          dayHeaderFormat: { weekday: "long" },
-          height: "100%",
-          expandRows: true,
-          events: [
-            {
-              id: "1",
-              title: "Evento nuevo",
-              start: "2025-10-08",
-              color: "yellow",
-            },
-            {
-              id: "2",
-              title: "Reunión de trabajo",
-              start: "2025-10-10T10:00:00",
-              end: "2025-10-10T12:00:00",
-            },
-          ],
         });
 
         calendar.render();
 
-        // ====== BOTONES DE MESES ======
+        // Crear barra de meses
         const meses = [
           "Enero",
           "Febrero",
@@ -132,13 +148,10 @@
           const btn = document.createElement("button");
           btn.textContent = mes;
           btn.addEventListener("click", () => {
-            // Quitar color activo de otros meses
             document
               .querySelectorAll("#month-toolbar button")
               .forEach((b) => b.classList.remove("active"));
             btn.classList.add("active");
-
-            // Cambiar el mes en el calendario
             const currentDate = calendar.getDate();
             const year = currentDate.getFullYear();
             calendar.gotoDate(new Date(year, i, 1));
@@ -146,7 +159,7 @@
           monthToolbar.appendChild(btn);
         });
 
-        // Marcar el mes actual
+        // Marcar mes actual
         const mesActual = new Date().getMonth();
         document
           .querySelectorAll("#month-toolbar button")

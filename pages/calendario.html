@@ -1,79 +1,131 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario</title>
-
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css' rel='stylesheet' />
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-    <link rel="stylesheet" href="">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FullCalendar</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
+    <!-- CDN full calendar-->
     <style>
-      footer{
-        background-color: #0070A0;
-        color: #FFF;
+      /* nota uno puede personalizar los etilos del calendario solo inspecionen y envestiguen para que persolizen */
+      #calendar {
+        margin: 40px auto;
+      }
+
+      /* Estilos del toolbar personalizado */
+      #my-toolbar {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      #my-toolbar button {
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      #my-toolbar button:hover {
+        background-color: #e0e0e0;
       }
     </style>
-</head>
-<body>
 
-    <header>
-
-    </header>
-    <main>
-        <h1>Calendario</h1>
-
-        <div id="calendar">
-
-        </div>
-
-
-
-
-
-
-
-    </main>
-
-
-    <footer>
-        <div class="5/5">
-            <nav>
-                <ul>
-                    <li>Navegación</li>
-                    <li>Inicio</li>
-                    <li>Blog</li>
-                    <li>Historia</li>
-                </ul>
-            </nav>
-        </div>
-        
-    </footer>
-
-
-    <script src="../JS/Calendario.js">
-
- document.addEventListener('DOMContentLoaded', function () {
-      const calendarEl = document.getElementById('calendar');
-      const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: [
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const calendarEl = document.getElementById("calendar");
+        // toolbar header 🧑‍🦲
+        const btnToday = document.getElementById("btn-today");
+        const btnPrev = document.getElementById("btn-prev");
+        const btnNext = document.getElementById("btn-next");
+        const btnMonth = document.getElementById("btn-month");
+        const btnWeek = document.getElementById("btn-week");
+        const btnDay = document.getElementById("btn-day");
+        // lista de events
+        const eventsList = [
           {
-            title: 'Desfile de Faroles',
-            start: '2025-09-14',
-            color: '#FF5733'
+            id: "1",
+            title: "Evento nuevo",
+            start: "2025-10-08",
+            color: "yellow",
           },
           {
-            title: 'Desfile 15 septiembre',
-            start: '2025-09-15',
-            color: '#33C1FF'
-          }
-        ]
+            id: "2",
+            title: "Reunión de trabajo",
+            start: "2025-10-10T10:00:00",
+            end: "2025-10-10T12:00:00",
+          },
+          {
+            id: "3",
+            title: "Evento de varios días",
+            start: "2025-10-15",
+            end: "2025-10-17",
+          },
+        ];
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridMonth",
+          //  Eventos del calendario
+          //en full calendar hay mas propiedades dde los evento pero usted pueden agregar mas si necesitaran
+          events: eventsList,
+          //  Detectar clic sobre un evento
+          // cuando le dan click aun evento tienen litaral la info completa de erse objeto para que la puedan manejar
+          eventClick: (info) => {
+            alert(
+              `Título: ${
+                info.event.title
+              }\nInicio: ${info.event.start.toLocaleString()}`
+            );
+          },
+          //  Desactivar el toolbar por defecto
+          headerToolbar: false,
+        });
+
+        calendar.render();
+
+        //  Toolbar personalizado con esto se controla  los bontones del calendario
+        const toolbar = document.getElementById("my-toolbar");
+
+        btnToday.addEventListener("click", () => {
+          calendar.today();
+        });
+
+        btnPrev.addEventListener("click", () => {
+          calendar.prev();
+        });
+
+        btnNext.addEventListener("click", () => {
+          calendar.next();
+        });
+
+        btnMonth.addEventListener("click", () => {
+          calendar.changeView("dayGridMonth");
+        });
+
+        btnWeek.addEventListener("click", () => {
+          calendar.changeView("timeGridWeek");
+        });
+
+        btnDay.addEventListener("click", () => {
+          calendar.changeView("timeGridDay");
+        });
       });
-      calendar.render();
-    });
-
-
     </script>
-</body>
+  </head>
+
+  <body>
+    <!--  Toolbar personalizado -->
+    <!-- super nota esta vara lo pueden hacer como les salga del tracero  solo manejan los eventos que ya estan 😌 -->
+    <div id="my-toolbar">
+      <button id="btn-prev">← Anterior</button>
+      <button id="btn-today">Hoy</button>
+      <button id="btn-next">Siguiente →</button>
+      <button id="btn-month">Mes</button>
+      <button id="btn-week">Semana</button>
+      <button id="btn-day">Día</button>
+    </div>
+
+    <!--  Calendario -->
+    <div id="calendar"></div>
+  </body>
 </html>

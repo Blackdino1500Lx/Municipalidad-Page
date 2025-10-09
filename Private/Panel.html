@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0"></script>
 </head>
 
@@ -128,7 +129,32 @@
     </form>
       </div>
     </div>
-
+ <footer class="footer">
+        <div class="cont-logo-footer">
+            <a href="index.html"><img src="..assets/img/logo/logo_alajuelita.png" alt="logo en el footer"></a>
+        </div>
+        <ul class="nav-footer">
+            <a href="index.html"><li class="menu-item-footer">inicio</li></a>
+            <a href="pages/calendario.html"><li class="menu-item-footer">calendario</li></a>
+            <a href="pages/blog.html"><li class="menu-item-footer">blog</li></a>
+            <a href="pages/historia.html"><li class="menu-item-footer">historia</li></a>
+            <a href="Private/login.html"><li class="menu-item-footer">editor</li></a>
+        </ul>
+        
+        <div class="linea-v-footer"></div>
+        <div class="horario">
+            <h4 class="horario-title">horario de atención</h4>
+            <p>Lunes a viernes de 8:00 a.m. a 4:00p.m.</p>
+            <p>Cajas de 8:00 a.m. a 3:30 p.m.</p>
+            <div class="redes">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+        </div>
+        <div class="linea-h-footer"></div>
+        <p>Derechos Reservados &copy; Devs INA 2025</p>
+    </footer>
     <script>
             // Mostrar/ocultar formularios y actualizar preview según selección
             document.getElementById('content-type').addEventListener('change', function() {

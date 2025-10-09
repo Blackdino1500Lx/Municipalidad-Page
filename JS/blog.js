@@ -53,4 +53,25 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Script modal cargado correctamente.');
   });
   
+  // --- Galería de imagen principal ---
+const featureImg = document.querySelector('.feature-image img');
+const thumbsGallery = document.querySelectorAll('.gallery-thumb');
 
+thumbsGallery.forEach(thumb => {
+  thumb.addEventListener('click', (event) => {
+    event.preventDefault(); // 👈 evita que la página se mueva
+
+    // Transición suave al cambiar imagen
+    featureImg.style.opacity = 0;
+    
+    setTimeout(() => {
+      featureImg.src = thumb.src;
+      featureImg.alt = thumb.alt;
+      featureImg.style.opacity = 1;
+    }, 200);
+
+    // Actualizar miniatura activa
+    thumbsGallery.forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+  });
+});

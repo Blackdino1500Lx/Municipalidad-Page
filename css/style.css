@@ -991,6 +991,10 @@ line-height: 2.4rem;
   padding: 5rem 4rem;
 }
 
+.article-content p {
+  margin: 1rem 0;
+}
+
 .main-title {
   text-align: center;
   font-size: 2.2rem;
@@ -1112,7 +1116,7 @@ line-height: 2.4rem;
 
 /* Modal */
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -1124,7 +1128,7 @@ line-height: 2.4rem;
     justify-content: center;
     align-items: center;
 }
-  
+
 .modal-content {
     background: #fff url("../assets/img/fondo_comentarios.png") no-repeat top left;
     background-size: 400px;
@@ -1251,7 +1255,41 @@ line-height: 2.4rem;
   }
 }
 
+/*Galeria de imagenes en Blog Template*/
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
 
+.gallery-thumb {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-thumb:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.gallery-thumb.active {
+  border: 3px solid #3BA66A;
+  opacity: 1;
+}
+
+.feature-image img {
+  transition: opacity 0.3s ease;
+}
 
   /*Historia*/
 .banner_historia {

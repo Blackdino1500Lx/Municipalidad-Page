@@ -1256,7 +1256,6 @@ line-height: 2.4rem;
 }
 
 /*Galeria de imagenes en Blog Template*/
-/* --- Contenedor general de la galería con flechas --- */
 .gallery-wrapper {
   display: flex;
   align-items: center;
@@ -1267,7 +1266,6 @@ line-height: 2.4rem;
   max-width: 100%;
 }
 
-/* --- Flechas --- */
 .gallery-arrow {
   background-color: #3BA66A;
   color: white;
@@ -1281,7 +1279,7 @@ line-height: 2.4rem;
   align-items: center;
   justify-content: center;
   transition: background 0.3s;
-  visibility: hidden; /* Ocultas por defecto */
+  visibility: hidden; 
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -1295,7 +1293,6 @@ line-height: 2.4rem;
   background-color: #318a57;
 }
 
-/* --- Contenedor con scroll horizontal --- */
 .image-gallery {
   display: flex;
   gap: 1rem;
@@ -1305,17 +1302,15 @@ line-height: 2.4rem;
   max-width: 85%;
 }
 
-/* Ocultar completamente la barra de scroll */
 .image-gallery::-webkit-scrollbar {
   display: none;
 }
 
 .image-gallery {
-  -ms-overflow-style: none; /* Para Edge */
-  scrollbar-width: none; /* Para Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* --- Miniaturas --- */
 .gallery-thumb {
   width: 100px;
   height: 70px;

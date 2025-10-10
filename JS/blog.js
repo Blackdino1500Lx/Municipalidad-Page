@@ -62,7 +62,6 @@ thumbsGallery.forEach(thumb => {
   thumb.addEventListener('click', (event) => {
     event.preventDefault();
 
-    // Animación de desvanecido
     featureImg.style.transition = "opacity 0.25s ease";
     featureImg.style.opacity = 0;
 
@@ -71,25 +70,21 @@ thumbsGallery.forEach(thumb => {
       featureImg.alt = thumb.alt;
       featureImg.style.opacity = 1;
 
-      // 👁️ Enfocar suavemente en la imagen principal
       featureImg.scrollIntoView({
         behavior: "smooth",
         block: "center"
       });
     }, 200);
 
-    // Actualiza miniaturas activas
     thumbsGallery.forEach(t => t.classList.remove('active'));
     thumb.classList.add('active');
   });
 });
 
-// --- Desplazamiento con flechas ---
 const gallery = document.querySelector('.image-gallery');
 const leftArrow = document.querySelector('.gallery-arrow.left');
 const rightArrow = document.querySelector('.gallery-arrow.right');
 
-// Función para actualizar visibilidad de flechas
 function updateArrows() {
   const scrollLeft = gallery.scrollLeft;
   const maxScrollLeft = gallery.scrollWidth - gallery.clientWidth;
@@ -97,7 +92,6 @@ function updateArrows() {
   rightArrow.classList.toggle('visible', scrollLeft < maxScrollLeft - 10);
 }
 
-// Desplazamiento con clics
 leftArrow.addEventListener('click', () => {
   gallery.scrollBy({ left: -200, behavior: 'smooth' });
 });
@@ -106,7 +100,6 @@ rightArrow.addEventListener('click', () => {
   gallery.scrollBy({ left: 200, behavior: 'smooth' });
 });
 
-// Actualiza visibilidad al hacer scroll
 gallery.addEventListener('scroll', updateArrows);
 window.addEventListener('load', updateArrows);
 window.addEventListener('resize', updateArrows);

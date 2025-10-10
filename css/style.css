@@ -259,7 +259,7 @@ overflow: hidden;
 }
 
 .noticia:nth-child(1) {
-  background-image: url('../assets/img/Escuela.png');
+  background-image: url('../assets/img/Blog-Template/15_septiembre.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1256,14 +1256,59 @@ line-height: 2.4rem;
 }
 
 /*Galeria de imagenes en Blog Template*/
+.gallery-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  margin-top: 1.5rem;
+  max-width: 100%;
+}
+
+.gallery-arrow {
+  background-color: #3BA66A;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  visibility: hidden; 
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-arrow.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.gallery-arrow:hover {
+  background-color: #318a57;
+}
+
 .image-gallery {
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  margin-top: 1.5rem;
-  flex-wrap: nowrap;
   overflow-x: auto;
-  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+  padding: 0.5rem;
+  max-width: 85%;
+}
+
+.image-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.image-gallery {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .gallery-thumb {
@@ -1274,6 +1319,7 @@ line-height: 2.4rem;
   cursor: pointer;
   opacity: 0.7;
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
 }
 
 .gallery-thumb:hover {

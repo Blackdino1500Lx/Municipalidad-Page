@@ -218,86 +218,81 @@
         transform-origin: center; /* para que crezca desde el centro */
       }
       /* Indicador de evento en el calendario */
-.fc-daygrid-day[data-event] {
-  position: relative;
-}
+      .fc-daygrid-day[data-event] {
+        position: relative;
+      }
 
-.fc-daygrid-day[data-event]::after {
-  content: "";
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: #f59e0b; /* color del punto */
-  border-radius: 50%;
-}
+      .fc-daygrid-day[data-event]::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        background-color: #f59e0b; /* color del punto */
+        border-radius: 50%;
+      }
 
-/* Overlay (fondo oscuro) */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
+      /* Overlay (fondo oscuro) */
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
 
-/* Modal centrado */
-.modal {
-  background: #fff;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  animation: grow 0.3s ease;
-  transform-origin: center;
-  position: relative;
-}
+      /* Modal centrado */
+      .modal {
+        background: #fff;
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        animation: grow 0.3s ease;
+        transform-origin: center;
+        position: relative;
+      }
 
-.modal img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
+      .modal img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
 
-.cerrar {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #999;
-}
+      .cerrar {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #999;
+      }
 
-.cerrar:hover { color: #000; }
+      .cerrar:hover { color: #000; }
 
-@keyframes grow {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-/* Indicador de evento en el calendario */
-.fc-daygrid-day[data-has-event="true"]::after {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: #f59e0b; /* color del puntito */
-  border-radius: 50%;
-}
-@media (max-width: 768px) {
-  
-}
-
-
+      @keyframes grow {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      /* Indicador de evento en el calendario */
+      .fc-daygrid-day[data-has-event="true"]::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        background-color: #f59e0b; /* color del puntito */
+        border-radius: 50%;
+      }
 
     </style>
   </head>

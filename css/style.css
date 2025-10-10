@@ -259,7 +259,7 @@ overflow: hidden;
 }
 
 .noticia:nth-child(1) {
-  background-image: url('../assets/img/Escuela.png');
+  background-image: url('../assets/img/Blog-Template/15_septiembre.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

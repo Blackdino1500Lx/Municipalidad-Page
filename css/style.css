@@ -1474,5 +1474,28 @@ line-height: 2.4rem;
   }
 }
 
+/* .devs {
+  position: fixed;
+  z-index: 1001;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: #e5e5e5;
+  background-image: url(../assets/gradient/gradient-1.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
 
-
+.devs a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 2rem;
+} */

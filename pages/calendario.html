@@ -30,13 +30,30 @@
 
       /* ======== BARRA DE MESES ======== */
       #month-toolbar {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        width: 100%;
-        text-align: center;
-        border: 2px solid #ffffff;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
         box-sizing: border-box;
+        
       }
+      #month-toolbar button {
+        flex: 1 0 8%; 
+        min-width: 80px;
+        max-width: 100px;
+        text-align: center;
+        border: none;
+        background: none;
+        color: #b0b0b0;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
 
       #month-toolbar button {
         border: none;
@@ -276,6 +293,10 @@
   background-color: #f59e0b; /* color del puntito */
   border-radius: 50%;
 }
+@media (max-width: 768px) {
+  
+}
+
 
 
     </style>

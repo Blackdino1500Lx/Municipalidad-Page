@@ -1474,28 +1474,192 @@ line-height: 2.4rem;
   }
 }
 
-/* .devs {
+
+/*Devs*/
+.devs {
   position: fixed;
   z-index: 1001;
   width: 100dvw;
   height: 100dvh;
   background-color: #e5e5e5;
-  background-image: url(../assets/gradient/gradient-1.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-  top: 0;
+  bottom: -100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 3rem 10rem 2rem 10rem;
+  transition: all 1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .devs {
+    padding: 2rem 1rem 1rem 1rem;
+  }
+}
+
+.activar-devs:hover {
+  cursor: pointer;
+}
+
+.fondos {
+  position: absolute;
+  width: 100dvw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.fondo1 {
+  background-image: url('../assets/gradient/grad-1.webp');
+}
+.fondo2 {
+  background-image: url('../assets/gradient/grad-2.webp');
+}
+.fondo3 {
+  background-image: url('../assets/gradient/grad-3.webp');
+}
+.fondo4 {
+  background-image: url('../assets/gradient/grad-4.webp');
+}
+.fondo5 {
+  background-image: url('../assets/gradient/grad-5.webp');
+}
+.fondo6 {
+  background-image: url('../assets/gradient/grad-6.webp');
+}
+.fondo7 {
+  background-image: url('../assets/gradient/grad-7.webp');
+}
+.fondo8 {
+  background-image: url('../assets/gradient/grad-8.webp');
+}
+.fondo9 {
+  background-image: url('../assets/gradient/grad-9.webp');
+}
+.fondo10 {
+  background-image: url('../assets/gradient/grad-10.webp');
+}
+.fondo11 {
+  background-image: url('../assets/gradient/grad-11.webp');
+}
+.fondo12 {
+  background-image: url('../assets/gradient/grad-12.webp');
+}
+.fondo13 {
+  background-image: url('../assets/gradient/grad-13.webp');
+}
+
+/* Estilos comunes */
+.fondo1, .fondo2, .fondo3, .fondo4, .fondo5, .fondo6,
+.fondo7, .fondo8, .fondo9, .fondo10, .fondo11, .fondo12 {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+
+
+.devs-active {
+  bottom: 0dvh;
+  transition: all 1s ease-in-out;
+}
+
+.cerrar-devs {
+  width: 100%;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  justify-content: flex-end; 
+  position: absolute;
+  z-index: 1002;
+  padding: 0 3rem;
+}
+
+.cerrar-devs img {
+  width: 40px;
 }
 
 .devs a {
-  color: white;
+  z-index: 1002;
+  color: black;
   text-decoration: none;
   font-size: 1.5rem;
   margin: 2rem;
-} */
+  transition: font-size 0.3s ease;
+}
+
+.devs a:hover {
+  color: white;
+}
+
+.flotar1 {
+  animation: flotar1 4s ease-in-out infinite;
+}
+
+.flotar2 {
+  animation: flotar2 6s ease-in-out infinite;
+}
+
+.flotar3 {
+  animation: flotar3 5s ease-in-out infinite;
+}
+
+.flotar4 {
+  animation: flotar4 7s ease-in-out infinite;
+}
+
+@keyframes flotar1 {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(10px, -10px) rotate(2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes flotar2 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-8px, 6px); }
+  50%  { transform: translate(6px, -8px); }
+  75%  { transform: translate(-4px, 4px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes flotar3 {
+  0%   { transform: translateY(0) rotate(0deg); }
+  33%  { transform: translateY(-6px) rotate(1deg); }
+  66%  { transform: translateY(6px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes flotar4 {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(5px, -3px); }
+  40%  { transform: translate(-4px, 6px); }
+  60%  { transform: translate(3px, -5px); }
+  80%  { transform: translate(-2px, 4px); }
+  100% { transform: translate(0, 0); }
+}
+
+.fondos > div {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  pointer-events: none; /* para que los fondos no interfieran con el hover/click */
+}
+
+/* regla con más especificidad que la base: gana sobre .fondos > div { opacity: 0 } */
+.fondos > div.active {
+  opacity: 1;
+}

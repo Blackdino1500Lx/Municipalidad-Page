@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const db = window.supabaseInstance;
   if (!db) return;
 
-  // ✅ Extraer el ID desde la URL
   const urlParams = new URLSearchParams(window.location.search);
   const blogId = parseInt(urlParams.get('id'), 10);
 
@@ -11,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // ✅ Consultar el blog específico por ID
+  // ✅ Cargar contenido del blog
   const { data, error } = await db
     .from('Blog')
     .select('*')
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const contenidoEl = document.querySelector('.article-content');
 
-  // Procesar campo phar (con saltos de línea si existen)
+  // ✅ Procesar campo phar
   const parrafos = (blog.phar || '').split('\n').filter(p => p.trim() !== '');
   parrafos.forEach(texto => {
     const p = document.createElement('p');
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     contenidoEl.appendChild(p);
   });
 
-  // Función para dividir texto plano en párrafos por puntuación
+  // ✅ Procesar campo phar2 con división inteligente
   function dividirEnParrafosAgrupados(textoPlano) {
     const frases = textoPlano
       .split(/(?<!\.)\.\s+(?=[A-ZÁÉÍÓÚ])/g)
@@ -68,9 +67,58 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // Procesar campo phar2 con división inteligente
   if (blog.phar2) {
     const parrafosExtra = dividirEnParrafosAgrupados(blog.phar2);
     parrafosExtra.forEach(p => contenidoEl.appendChild(p));
+  }
+
+  // ✅ Cargar galería de imágenes
+  const galeriaEl = document.querySelector('.image-gallery');
+  const leftArrow = document.querySelector('.gallery-arrow.left');
+  const rightArrow = document.querySelector('.gallery-arrow.right');
+
+  const { data: imagenes, error: galeriaError } = await db
+    .from('blog_imagenes')
+    .select('*')
+    .eq('blog_id', blogId)
+    .order('orden', { ascending: true });
+
+  if (galeriaError) {
+    console.error('Error al cargar galería:', galeriaError.message);
+  }
+
+  if (imagenes && imagenes.length > 0) {
+    imagenes.forEach((imgData, index) => {
+      const img = document.createElement('img');
+      img.src = imgData.imagen_url;
+      img.alt = imgData.alt_text || `Imagen ${index + 1}`;
+      img.classList.add('gallery-thumb');
+      galeriaEl.appendChild(img);
+    });
+
+    // ✅ Navegación con flechas
+    let currentIndex = 0;
+    const thumbs = galeriaEl.querySelectorAll('.gallery-thumb');
+
+    function mostrarImagen(index) {
+      thumbs.forEach((img, i) => {
+        img.style.display = i === index ? 'block' : 'none';
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    leftArrow.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+      mostrarImagen(currentIndex);
+    });
+
+    rightArrow.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % thumbs.length;
+      mostrarImagen(currentIndex);
+    });
+
+    mostrarImagen(currentIndex);
+  } else {
+    galeriaEl.innerHTML = '<p style="padding: 1rem;">No hay imágenes disponibles para esta entrada.</p>';
   }
 });

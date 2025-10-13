@@ -40,6 +40,7 @@ h1 {
 }
 .div-forms{
 display: flex;
+align-items: baseline;
 justify-content: space-evenly;
 background-color: #97b8cf;
 padding: 3rem;

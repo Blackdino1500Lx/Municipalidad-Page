@@ -68,6 +68,7 @@ function buildCarouselFromBanners(banners) {
     if (i === 0) dot.classList.add("active");
     dotsContainer.appendChild(dot);
   });
+  carrusel.style.transform = "translateX(0%)";
 }
 
 function initCarouselBehavior() {

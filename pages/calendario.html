@@ -11,41 +11,22 @@
 
   <body>
     <nav class="nav" aria-label="Menú principal" role="navigation">
-      <div class="cont-logo">
-        <a href="index.html" aria-label="Ir al inicio">
-          <img
-            src="../assets/img/logo/logo_alajuelita.png"
-            alt="logo"
-            class="logo"
-          />
-        </a>
-      </div>
-      <ul class="menu" role="menubar">
-        <a href="../index.html" aria-label="Ir a inicio"
-          ><li class="menu-item" role="menuitem">inicio</li></a
-        >
-        <a href="../pages/calendario.html" aria-label="Ver calendario"
-          ><li class="menu-item" role="menuitem">calendario</li></a
-        >
-        <a href="../pages/blog.html" aria-label="Ir al blog"
-          ><li class="menu-item" role="menuitem">blog</li></a
-        >
-        <a
-          href="../pages/historia.html"
-          aria-label="Conocer la historia del cantón"
-          ><li class="menu-item" role="menuitem">historia</li></a
-        >
-      </ul>
-      <div
-        class="burger"
-        aria-label="Abrir o cerrar menú de navegación"
-        role="button"
-        tabindex="0"
-      >
-        <div class="line1 line1-activa"></div>
-        <div class="line2 line2-activa"></div>
-        <div class="line3 line3-activa"></div>
-      </div>
+        <div class="cont-logo">
+            <a href="/index.html" aria-label="Ir al inicio">
+                <img src="../assets/img/logo/logo_alajuelita.png" alt="logo" class="logo">
+            </a>
+        </div>
+        <ul class="menu" role="menubar">
+            <a href="../index.html" aria-label="Ir a inicio"><li class="menu-item" role="menuitem">inicio</li></a>
+            <a href="../pages/calendario.html" aria-label="Ver calendario"><li class="menu-item" role="menuitem">calendario</li></a>
+            <a href="../pages/blog.html" aria-label="Ir al blog"><li class="menu-item" role="menuitem">blog</li></a>
+            <a href="../pages/historia.html" aria-label="Conocer la historia del cantón"><li class="menu-item" role="menuitem">historia</li></a>
+        </ul>
+        <div class="burger" aria-label="Abrir o cerrar menú de navegación" role="button" tabindex="0">
+            <div class="line1 line1-activa"></div>
+            <div class="line2 line2-activa"></div>
+            <div class="line3 line3-activa"></div>
+        </div>
     </nav>
     <h1>Calendario</h1>
 
@@ -130,7 +111,7 @@
         <div class="linea-h-footer"></div>
         <p class="activar-devs">Derechos Reservados &copy; Devs INA 2025</p>
     </footer>
-    <script src="../JS/BurgerMenu.js"></script>
+    <script type="module" src="../JS/BurgerMenu.js"></script>
     <script type="module" src="../JS/supabase.js"></script>
     <script src="../JS/calendar.js"></script>
   </body>

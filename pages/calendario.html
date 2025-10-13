@@ -57,13 +57,18 @@
 
     <!-- MODAL -->
     <div class="evento-overlay" id="evento-overlay">
-      <div class="evento-modal">
-        <span class="evento-cerrar" id="evento-cerrar">&times;</span>
-        <img id="evento-img" src="" alt="Evento del día" />
-        <h2 id="evento-fecha"></h2>
-        <p id="evento-texto"></p>
-      </div>
-    </div>
+  <div class="evento-modal">
+    <span class="evento-cerrar" id="evento-cerrar">&times;</span>
+    <img id="evento-img" src="" alt="Evento del día" />
+    <h2 id="evento-fecha"></h2>
+    <p id="evento-texto"></p>
+    <p id="evento-ubicacion"></p>
+    <p id="evento-tipo"></p>
+    <p id="evento-estado"></p>
+    <p id="evento-coordinador"></p>
+  </div>
+</div>
+
 
     <div class="devs" aria-label="Desarrolladores del sitio web">
         <div class="fondos">
@@ -125,8 +130,8 @@
         <div class="linea-h-footer"></div>
         <p class="activar-devs">Derechos Reservados &copy; Devs INA 2025</p>
     </footer>
-    <script src="../JS/main.js"></script>
     <script src="../JS/BurgerMenu.js"></script>
+    <script type="module" src="../JS/supabase.js"></script>
     <script src="../JS/calendar.js"></script>
   </body>
 </html>

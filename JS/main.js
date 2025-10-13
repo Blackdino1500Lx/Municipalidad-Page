@@ -11,8 +11,9 @@ async function fetchBanners() {
       console.error("Supabase no inicializado: db es null");
       return [];
     }
-//Cambiar nombre de Base de datos de "banner" a "Banner", se cambia nombre para probar fallback
-    const { data: banners, error } = await db.from("banner").select("*");
+
+    // Consulta a la tabla "Banner"
+    const { data: banners, error } = await db.from("Banner").select("*");
     if (error) {
       console.error("Error obteniendo banners:", error);
       return [];
@@ -29,7 +30,7 @@ async function fetchBanners() {
 function buildCarouselFromBanners(banners) {
   if (!carrusel || !dotsContainer) return;
 
-  // Limpiar carrusel y dots
+  // Limpiar carrusel y puntos
   carrusel.innerHTML = "";
   dotsContainer.innerHTML = "";
 
@@ -41,7 +42,7 @@ function buildCarouselFromBanners(banners) {
   if (validBanners.length === 0) {
     // Fallback visual si no hay banners
     const fallback = document.createElement("div");
-    fallback.className = "noticia";
+    fallback.className = "noticia active";
     fallback.style.backgroundImage = "url('../assets/img/Blog-Template/15_septiembre.jpg')";
     fallback.style.backgroundSize = "cover";
     fallback.style.backgroundPosition = "center";
@@ -54,7 +55,7 @@ function buildCarouselFromBanners(banners) {
     const slide = document.createElement("div");
     slide.className = "noticia";
     slide.dataset.id = String(b.id ?? "");
-    slide.style.background = "none"; // Elimina fondo gris heredado
+    slide.style.background = "none";
     slide.style.backgroundImage = `url('${b.imagen_url}')`;
     slide.style.backgroundSize = "cover";
     slide.style.backgroundPosition = "center";
@@ -67,8 +68,6 @@ function buildCarouselFromBanners(banners) {
     if (i === 0) dot.classList.add("active");
     dotsContainer.appendChild(dot);
   });
-
-  carrusel.style.transform = "translateX(0%)";
 }
 
 function initCarouselBehavior() {
@@ -77,48 +76,40 @@ function initCarouselBehavior() {
   const dots = dotsContainer.querySelectorAll(".dot-noticia");
   let index = 0;
   const total = dots.length;
+  let autoplay;
 
   function mostrarNoticia(i) {
-    carrusel.style.transform = `translateX(-${i * 100}%)`;
+    const slides = carrusel.querySelectorAll(".noticia");
+
+    // Limpiar clases activas
+    slides.forEach(slide => slide.classList.remove("active"));
     dots.forEach(dot => dot.classList.remove("active"));
+
+    // Activar slide y punto correspondiente
+    if (slides[i]) slides[i].classList.add("active");
     if (dots[i]) dots[i].classList.add("active");
+
     index = i;
-  }
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => mostrarNoticia(i));
-  });
-
-  if (total > 0) {
-    mostrarNoticia(0);
-    setInterval(() => {
+    // Reiniciar autoplay
+    clearInterval(autoplay);
+    autoplay = setInterval(() => {
       const next = (index + 1) % total;
       mostrarNoticia(next);
     }, 8000);
   }
-}
 
-/*function initBurger() {
-  const burger = document.querySelector(".burger");
-  const menu = document.querySelector(".menu");
-  if (!burger || !menu) return;
-
-  burger.classList.remove("burger-activo");
-  menu.classList.remove("menu-activo");
-
-  burger.addEventListener("click", () => {
-    burger.classList.toggle("burger-activo");
-    menu.classList.toggle("menu-activo");
+  // Eventos de clic en los puntos
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => mostrarNoticia(i));
   });
 
-  menu.querySelectorAll("a").forEach(enlace => {
-    enlace.addEventListener("click", () => {
-      burger.classList.remove("burger-activo");
-      menu.classList.remove("menu-activo");
-    });
-  });
+  // Iniciar carrusel
+  if (total > 0) {
+    mostrarNoticia(0);
+  }
 }
-*/
+
 document.addEventListener("DOMContentLoaded", async () => {
   carrusel = document.querySelector(".noticias-carrusel");
   dotsContainer = document.querySelector(".dot-cont");
@@ -128,5 +119,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   buildCarouselFromBanners(banners);
   initCarouselBehavior();
-  //initBurger();
 });

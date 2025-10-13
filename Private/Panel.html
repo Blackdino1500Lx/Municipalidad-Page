@@ -24,41 +24,60 @@
       <!-- Grupo Evento -->
     <div class="form-group" id="group-evento">
         <form id="Form-Add-Event">
-            <h2>Agregar Evento</h2>
-            <label for="title">Título</label>
-            <input type="text" id="title" name="title">
-            <label for="start">Fecha Inicio</label>
-            <input type="date" id="start" >
-            <label for="end">Fecha de Finalizacion</label>
-            <input type="date" id="end" >
-            <label for="description">Description</label>
-            <input type="text" id="description" placeholder="Descripcion del evento">
-            <label for="type">Tipo de Evento</label>
-            <input type="text" id="type" placeholder="Ejemplo Cultural, Deportivo">
-            <label for="location">Ubicacion</label>
-            <input type="text" id="location" placeholder="Parque, Cancha, Salon">
-            <label for="coordinator">Coordinador</label>
-            <input type="text" id="coordinator" placeholder="Nombre de Coordinador">
-            <label for="status">estado del evento</label>
-            <select id="status"> 
-                <option value="pendiente">Pendiente</option>
-                <option value="confirmado">Confirmado</option>
-                <option value="cancelado">Cancelado</option>
-            </select>
-            <div class="Btns">
-                <article class="btns-art">
-                    <input type="file" id="archivoimg" accept="image/*" />
-                    <label for="archivoimg" class="boton-subida">Subir imagen</label>
-                    <img id="previewImg" style="max-width: 300px; display: none;" />
-                    <button class="save" type="submit">Guardar Datos</button>
-                </article>
-                <article class="btns-art">
-                    <input type="file" id="archivoExcel" accept=".xlsx, .xls">
-                    <label for="archivoExcel" class="boton-subida">Subir Archivo Excel</label>
-                    <button onclick="procesarExcel()">Guardar Datos Excel</button>
-                </article>
-            </div>
-        </form>
+  <h2>Agregar Evento</h2>
+
+  <label for="title">Título</label>
+  <input type="text" id="title" name="title" required>
+
+  <label for="start">Fecha Inicio</label>
+  <input type="date" id="start" name="start" required>
+
+  <label for="end">Fecha de Finalización</label>
+  <input type="date" id="end" name="end">
+
+  <label for="description">Descripción</label>
+  <input type="text" id="description" name="description" placeholder="Descripción del evento" required>
+
+  <label for="type">Tipo de Evento</label>
+  <select id="type" name="type" required>
+    <option value="" selected disabled>Ninguno</option>
+    <option value="cultural">Cultural </option>
+    <option value="ambiental">Ambiental </option>
+    <option value="educativo">Educativo </option>
+    <option value="familiar">Familiar </option>
+    <option value="comercial">Comercial </option>
+    <option value="social">Social</option>
+    <option value="deportivo">Deportivo</option>
+  </select>
+
+  <label for="location">Ubicación</label>
+  <input type="text" id="location" name="location" placeholder="Parque, Cancha, Salón" required>
+
+  <label for="coordinator">Coordinador</label>
+  <input type="text" id="coordinator" name="coordinator" placeholder="Nombre del coordinador" required>
+
+  <label for="status">Estado del evento</label>
+  <select id="status" name="status" required>
+    <option value="pendiente">Pendiente</option>
+    <option value="confirmado">Confirmado</option>
+    <option value="cancelado">Cancelado</option>
+  </select>
+
+  <div class="Btns">
+    <article class="btns-art">
+      <input type="file" id="archivoimg" accept="image/*" />
+      <label for="archivoimg" class="boton-subida">Subir imagen</label>
+      <img id="previewImg" style="max-width: 300px; display: none;" />
+      <button class="save" type="submit">Guardar Datos</button>
+    </article>
+
+    <article class="btns-art">
+      <input type="file" id="archivoExcel" accept=".xlsx, .xls">
+      <label for="archivoExcel" class="boton-subida">Subir Archivo Excel</label>
+      <button onclick="procesarExcel()">Guardar Datos Excel</button>
+    </article>
+  </div>
+</form>
         <form action="" id="Form-Delete-Event">
             <h2>Borrar Evento</h2>
             <label for="deleteId">ID del Evento</label>

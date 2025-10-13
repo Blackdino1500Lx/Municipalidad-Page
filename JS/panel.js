@@ -1,7 +1,7 @@
 // Agregar Eventos a la Base de Datos
 // Obtener Datos del Formulario
 // panel.js — Cliente ESM para el Panel de Administración
-import supabase from './supabaseClient.js';
+const supabase = window.supabaseInstance;
 
 // Fallback si por alguna razón window.supabaseInstance existe (compatibilidad)
 const db = supabase || window.supabaseInstance;

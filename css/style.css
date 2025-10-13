@@ -252,17 +252,10 @@ min-width: 100%;
 flex-shrink: 0;
 padding: 40px;
 box-sizing: border-box;
-background: #f5f5f5;
+background: none;
 text-align: center;
 height: 100%;
 overflow: hidden;
-}
-
-.noticia:nth-child(1) {
-  background-image: url('../assets/img/Escuela.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .dot-cont {

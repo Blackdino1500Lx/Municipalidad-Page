@@ -3,304 +3,50 @@
   <head>
     <meta charset="utf-8" />
     <title>Calendario</title>
+    <link rel="icon" href="../assets/img/logo/logo_alajuelita.png" type="image/png" />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
-
-    <style>
-      html,
-      body {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: "Arial", sans-serif;
-        display: flex;
-        flex-direction: column;
-        background-color: #fff;
-      }
-
-      h1 {
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #000;
-        margin: 2rem 0 1rem 4rem;
-        margin-top: 10rem;
-      }
-
-      /* ======== BARRA DE MESES ======== */
-      #month-toolbar {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        width: 100%;
-        text-align: center;
-        border: 2px solid #ffffff;
-        box-sizing: border-box;
-      }
-
-      #month-toolbar button {
-        border: none;
-        background: none;
-        color: #b0b0b0;
-        font-size: 1rem;
-        font-weight: bold;
-        padding: 15px 0;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        width: 100%;
-        margin: 2rem 0;
-      }
-
-      #month-toolbar button:hover {
-        color: #000;
-      }
-
-      #month-toolbar button.active {
-        color: #000;
-        position: relative;
-        font-weight: bold;
-      }
-
-      #month-toolbar button.active::after {
-        content: "";
-        position: absolute;
-        bottom: 5px;
-        left: 20%;
-        width: 60%;
-        height: 3px;
-        background-color: #facc15; /* amarillo */
-        border-radius: 2px;
-      }
-
-      #calendar {
-        flex: 1;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 10px;
-        max-width: 100%;
-      }
-
-      .fc {
-        height: 100%;
-      }
-
-      .fc-toolbar-title {
-        color: #f59e0b;
-        font-weight: bold;
-        font-size: 1.8rem !important;
-        text-align: left;
-        width: 100%;
-      }
-
-      .fc-col-header-cell-cushion {
-        color: #9ca3af;
-        font-weight: bold;
-      }
-
-      .fc-day-today {
-        background-color: #f9f9f9 !important;
-      }
-
-      .fc-scrollgrid,
-      .fc-daygrid-day {
-        border: none !important;
-      }
-
-      .fc-toolbar.fc-header-toolbar {
-        justify-content: flex-start !important;
-      }
-
-      /* ======== MODAL (overlay) ======== */
-      .overlay {
-        display: none; /* oculto por defecto */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
-
-      .modal {
-        background: #fff;
-        border-radius: 12px;
-        padding: 2rem;
-        text-align: center;
-        width: 90%;
-        max-width: 400px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        animation: grow 0.3s ease;
-        position: relative;
-      }
-
-      @keyframes grow {
-        from {
-          transform: scale(0.8);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      .modal img {
-        width: 100%;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-      }
-
-      .modal h2 {
-        margin: 0;
-        font-size: 1.5rem;
-        color: #f59e0b;
-      }
-
-      .modal p {
-        color: #444;
-        margin-top: 0.5rem;
-      }
-
-      .cerrar {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        color: #999;
-      }
-
-      .cerrar:hover {
-        color: #000;
-      }
-      .overlay {
-        display: none; /* oculto por defecto */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6); /* fondo oscuro */
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
-      .modal {
-        background: #fff;
-        border-radius: 12px;
-        padding: 2rem;
-        text-align: center;
-        width: 90%;
-        max-width: 400px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        animation: grow 0.3s ease;
-        position: relative;
-        transform-origin: center; /* para que crezca desde el centro */
-      }
-      /* Indicador de evento en el calendario */
-.fc-daygrid-day[data-event] {
-  position: relative;
-}
-
-.fc-daygrid-day[data-event]::after {
-  content: "";
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: #f59e0b; /* color del punto */
-  border-radius: 50%;
-}
-
-/* Overlay (fondo oscuro) */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* Modal centrado */
-.modal {
-  background: #fff;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  animation: grow 0.3s ease;
-  transform-origin: center;
-  position: relative;
-}
-
-.modal img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-.cerrar {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #999;
-}
-
-.cerrar:hover { color: #000; }
-
-@keyframes grow {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-/* Indicador de evento en el calendario */
-.fc-daygrid-day[data-has-event="true"]::after {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: #f59e0b; /* color del puntito */
-  border-radius: 50%;
-}
-
-
-    </style>
+    <link rel="stylesheet" href="../css/calendar.css" />
   </head>
 
   <body>
     <nav class="nav" aria-label="Menú principal" role="navigation">
-        <div class="cont-logo">
-            <a href="index.html" aria-label="Ir al inicio">
-                <img src="../assets/img/logo/logo_alajuelita.png" alt="logo" class="logo">
-            </a>
-        </div>
-        <ul class="menu" role="menubar">
-            <a href="../index.html" aria-label="Ir a inicio"><li class="menu-item" role="menuitem">inicio</li></a>
-            <a href="../pages/calendario.html" aria-label="Ver calendario"><li class="menu-item" role="menuitem">calendario</li></a>
-            <a href="../pages/blog.html" aria-label="Ir al blog"><li class="menu-item" role="menuitem">blog</li></a>
-            <a href="../pages/historia.html" aria-label="Conocer la historia del cantón"><li class="menu-item" role="menuitem">historia</li></a>
-        </ul>
-        <div class="burger" aria-label="Abrir o cerrar menú de navegación" role="button" tabindex="0">
-            <div class="line1 line1-activa"></div>
-            <div class="line2 line2-activa"></div>
-            <div class="line3 line3-activa"></div>
-        </div>
+      <div class="cont-logo">
+        <a href="index.html" aria-label="Ir al inicio">
+          <img
+            src="../assets/img/logo/logo_alajuelita.png"
+            alt="logo"
+            class="logo"
+          />
+        </a>
+      </div>
+      <ul class="menu" role="menubar">
+        <a href="../index.html" aria-label="Ir a inicio"
+          ><li class="menu-item" role="menuitem">inicio</li></a
+        >
+        <a href="../pages/calendario.html" aria-label="Ver calendario"
+          ><li class="menu-item" role="menuitem">calendario</li></a
+        >
+        <a href="../pages/blog.html" aria-label="Ir al blog"
+          ><li class="menu-item" role="menuitem">blog</li></a
+        >
+        <a
+          href="../pages/historia.html"
+          aria-label="Conocer la historia del cantón"
+          ><li class="menu-item" role="menuitem">historia</li></a
+        >
+      </ul>
+      <div
+        class="burger"
+        aria-label="Abrir o cerrar menú de navegación"
+        role="button"
+        tabindex="0"
+      >
+        <div class="line1 line1-activa"></div>
+        <div class="line2 line2-activa"></div>
+        <div class="line3 line3-activa"></div>
+      </div>
     </nav>
-
     <h1>Calendario</h1>
 
     <!-- Barra de meses -->
@@ -310,13 +56,47 @@
     <div id="calendar"></div>
 
     <!-- MODAL -->
-    <div class="overlay" id="overlay">
-      <div class="modal">
-        <span class="cerrar" id="cerrar">&times;</span>
-        <img id="modal-img" src="" alt="Evento del día" />
-        <h2 id="modal-fecha"></h2>
-        <p id="modal-texto"></p>
+    <div class="evento-overlay" id="evento-overlay">
+      <div class="evento-modal">
+        <span class="evento-cerrar" id="evento-cerrar">&times;</span>
+        <img id="evento-img" src="" alt="Evento del día" />
+        <h2 id="evento-fecha"></h2>
+        <p id="evento-texto"></p>
       </div>
+    </div>
+
+    <div class="devs" aria-label="Desarrolladores del sitio web">
+        <div class="fondos">
+            <div class="fondo1"></div>
+            <div class="fondo2"></div>
+            <div class="fondo3"></div>
+            <div class="fondo4"></div>
+            <div class="fondo5"></div>
+            <div class="fondo6"></div>
+            <div class="fondo7"></div>
+            <div class="fondo8"></div>
+            <div class="fondo9"></div>
+            <div class="fondo10"></div>
+            <div class="fondo11"></div>
+            <div class="fondo12"></div>
+            <div class="fondo13"></div>
+        </div>
+        <div class="cerrar-devs">
+            <img src="../assets/icons/arrow.png" alt="icono de cerrar">
+        </div>
+        <a class="dev flotar1" href=""><h5>Didier</h5></a>
+        <a class="dev flotar2" href=""><h5>Arianna</h5></a>
+        <a class="dev flotar3" href=""><h5>Edward</h5></a>
+        <a class="dev flotar4" href=""><h5>Emily</h5></a>
+        <a class="dev flotar1" href=""><h5>Emanuel</h5></a>
+        <a class="dev flotar2" href=""><h5>Melany</h5></a>
+        <a class="dev flotar3" href=""><h5>Joshua</h5></a>
+        <a class="dev flotar4" target="_blank" href="https://gnnis.com"><h5>Gennis</h5></a>
+        <a class="dev flotar1" href=""><h5>Madeling</h5></a>
+        <a class="dev flotar2" href=""><h5>Francinie</h5></a>
+        <a class="dev flotar3" href=""><h5>María José</h5></a>
+        <a class="dev flotar4" href=""><h5>Fabián</h5></a>
+        <a class="dev flotar1" href=""><h5>Yoan</h5></a>
     </div>
     <footer class="footer" aria-label="Pie de página" role="contentinfo">
         <div class="cont-logo-footer">
@@ -343,109 +123,9 @@
             </div>
         </div>
         <div class="linea-h-footer"></div>
-        <p>Derechos Reservados &copy; Devs INA 2025</p>
+        <p class="activar-devs">Derechos Reservados &copy; Devs INA 2025</p>
     </footer>
-
-
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const calendarEl = document.getElementById("calendar");
-  const overlay = document.getElementById("overlay");
-  const modalFecha = document.getElementById("modal-fecha");
-  const modalTexto = document.getElementById("modal-texto");
-  const modalImg = document.getElementById("modal-img");
-  const cerrar = document.getElementById("cerrar");
-
-  // Aquí defines la información de los días con evento
-  const infoDias = {
-    "2025-10-10": {
-      titulo: "Reunión de Alcaldía",
-      texto: "Reunión para discutir proyectos comunitarios.",
-      imagen: "../assets/img/antigua_alajuelita.jpg",
-    },
-    "2025-10-15": {
-      titulo: "Festival Cultural",
-      texto: "Evento especial con música y bailes típicos.",
-      imagen: "../assets/img/eventos/festival.jpg",
-    },
-    "2025-10-21": {
-      titulo: "Día del Medio Ambiente",
-      texto: "Actividad ecológica en el parque central.",
-      imagen: "../assets/img/eventos/ambiente.jpg",
-    },
-  };
-
-  const calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: "dayGridMonth",
-    locale: "es",
-    firstDay: 1,
-    headerToolbar: { start: "", center: "title", end: "" },
-    titleFormat: { month: "long" },
-
-    events: Object.keys(infoDias).map(date => ({
-      start: date,
-      allDay: true,
-      display: "block"
-    })),
-
-    dateClick: function(info) {
-      const dateStr = info.dateStr;
-      const data = infoDias[dateStr];
-
-      if (data) {
-        modalFecha.textContent = data.titulo;
-        modalTexto.textContent = data.texto;
-        modalImg.src = data.imagen;
-      } else {
-        modalFecha.textContent = "Sin eventos";
-        modalTexto.textContent = "No hay información para este día.";
-        modalImg.src = "https://via.placeholder.com/400x200?text=Sin+evento";
-      }
-
-      overlay.style.display = "flex";
-    },
-
-    dayCellDidMount: function(info) {
-      if (infoDias[info.dateStr]) {
-        info.el.setAttribute("data-has-event", "true");
-      }
-    }
-  });
-
-  calendar.render();
-
-  // === GENERAR BOTONES DE MESES ===
-  const monthToolbar = document.getElementById("month-toolbar");
-  const meses = [
-    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-  ];
-
-  meses.forEach((mes, index) => {
-    const btn = document.createElement("button");
-    btn.textContent = mes;
-    btn.addEventListener("click", () => {
-      const year = new Date().getFullYear();
-      calendar.gotoDate(`${year}-${String(index + 1).padStart(2, "0")}-01`);
-      actualizarActivo(index);
-    });
-    monthToolbar.appendChild(btn);
-  });
-
-  function actualizarActivo(mesIndex) {
-    const botones = monthToolbar.querySelectorAll("button");
-    botones.forEach((btn, i) => btn.classList.toggle("active", i === mesIndex));
-  }
-
-  actualizarActivo(new Date().getMonth());
-
-  // Cerrar modal
-  cerrar.addEventListener("click", () => overlay.style.display = "none");
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) overlay.style.display = "none";
-  });
-});
-</script>
-
-</body>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/calendar.js"></script>
+  </body>
 </html>

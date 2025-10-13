@@ -1,0 +1,290 @@
+      html,
+      body {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          font-family: "Arial", sans-serif;
+          display: flex;
+          flex-direction: column;
+          background-color: #fff;
+      }
+
+      h1 {
+          text-align: center;
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #000;
+          margin: 2rem 0 1rem 4rem;
+          margin-top: 10rem;
+      }
+
+      /* ======== BARRA DE MESES ======== */
+      #month-toolbar {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0 1rem;
+          margin-bottom: 1rem;
+          box-sizing: border-box;
+
+      }
+
+      #month-toolbar button {
+          flex: 1 0 8%;
+          min-width: 80px;
+          max-width: 100px;
+          text-align: center;
+          border: none;
+          background: none;
+          color: #b0b0b0;
+          font-size: 1rem;
+          font-weight: bold;
+          padding: 10px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+      }
+
+
+      #month-toolbar button {
+          border: none;
+          background: none;
+          color: #b0b0b0;
+          font-size: 1rem;
+          font-weight: bold;
+          padding: 15px 0;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          width: 100%;
+          margin: 2rem 0;
+      }
+
+      #month-toolbar button:hover {
+          color: #000;
+      }
+
+      #month-toolbar button.active {
+          color: #000;
+          position: relative;
+          font-weight: bold;
+      }
+
+      #month-toolbar button.active::after {
+          content: "";
+          position: absolute;
+          bottom: 5px;
+          left: 20%;
+          width: 60%;
+          height: 3px;
+          background-color: #facc15;
+          /* amarillo */
+          border-radius: 2px;
+      }
+
+      #calendar {
+          flex: 1;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 10px;
+          max-width: 100%;
+      }
+
+      .fc {
+          height: 100%;
+      }
+
+      .fc-toolbar-title {
+          color: #f59e0b;
+          font-weight: bold;
+          font-size: 1.8rem !important;
+          text-align: left;
+          width: 100%;
+      }
+
+      .fc-col-header-cell-cushion {
+          color: #9ca3af;
+          font-weight: bold;
+      }
+
+      .fc-day-today {
+          background-color: #f9f9f9 !important;
+      }
+
+      .fc-scrollgrid,
+      .fc-daygrid-day {
+          border: none !important;
+      }
+
+      .fc-toolbar.fc-header-toolbar {
+          justify-content: flex-start !important;
+      }
+
+      /* ======== MODAL (overlay) ======== */
+      .overlay {
+          display: none;
+          /* oculto por defecto */
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+      }
+
+      .cerrar {
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          font-size: 1.2rem;
+          cursor: pointer;
+          color: #999;
+      }
+
+      .cerrar:hover {
+          color: #000;
+      }
+
+      .overlay {
+          display: none;
+          /* oculto por defecto */
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+          /* fondo oscuro */
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+      }
+
+      .modal {
+          background: #fff;
+          border-radius: 12px;
+          padding: 2rem;
+          text-align: center;
+          width: 90%;
+          max-width: 400px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+          animation: grow 0.3s ease;
+          position: relative;
+          transform-origin: center;
+          /* para que crezca desde el centro */
+      }
+
+      /* Indicador de evento en el calendario */
+      .fc-daygrid-day[data-event] {
+          position: relative;
+      }
+
+      .fc-daygrid-day[data-event]::after {
+          content: "";
+          position: absolute;
+          bottom: 5px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 8px;
+          height: 8px;
+          background-color: #f59e0b;
+          /* color del punto */
+          border-radius: 50%;
+      }
+
+
+      /* Indicador de evento en el calendario */
+      .fc-daygrid-day[data-has-event="true"]::after {
+          content: "";
+          position: absolute;
+          bottom: 4px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 8px;
+          height: 8px;
+          background-color: #f59e0b;
+          /* color del puntito */
+          border-radius: 50%;
+      }
+
+
+
+      /* Fondo oscuro del modal */
+      .evento-overlay {
+          display: none;
+          /* Oculto por defecto */
+          position: fixed;
+          z-index: 9999;
+          inset: 0;
+          /* equivale a top:0, left:0, right:0, bottom:0 */
+          background-color: rgba(0, 0, 0, 0.6);
+          justify-content: center;
+          align-items: center;
+          transition: opacity 0.3s ease;
+      }
+
+      /* Caja principal del modal */
+      .evento-modal {
+          background: #fff;
+          border-radius: 16px;
+          padding: 20px 25px;
+          max-width: 400px;
+          width: 90%;
+          text-align: center;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+          position: relative;
+          animation: aparecerModal 0.3s ease-out;
+      }
+
+      /* Animación de entrada */
+      @keyframes aparecerModal {
+          from {
+              transform: scale(0.9);
+              opacity: 0;
+          }
+
+          to {
+              transform: scale(1);
+              opacity: 1;
+          }
+      }
+
+      /* Botón de cierre */
+      .evento-cerrar {
+          position: absolute;
+          right: 12px;
+          top: 8px;
+          font-size: 22px;
+          color: #555;
+          cursor: pointer;
+          transition: color 0.2s ease;
+      }
+
+      .evento-cerrar:hover {
+          color: #e74c3c;
+      }
+
+      /* Imagen del evento */
+      #evento-img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+          margin-top: 10px;
+          object-fit: cover;
+      }
+
+      /* Texto y título */
+      #evento-fecha {
+          margin: 12px 0 6px;
+          color: #333;
+          font-size: 1.4rem;
+      }
+
+      #evento-texto {
+          color: #555;
+          font-size: 1rem;
+          line-height: 1.5;
+      }

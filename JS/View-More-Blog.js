@@ -81,4 +81,5 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.warn('Botón "Ver más artículos del blog" no encontrado.');
   }
+  cargarBlogs(); 
 });

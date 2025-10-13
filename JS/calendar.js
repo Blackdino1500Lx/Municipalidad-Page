@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function obtenerEventos() {
   const { data, error } = await db
     .from("Eventos")
-    .select("id, title, start, end, description, location, type, coordinator, status, imagen_url");
+    .select(", title, start, end, description, location, type, coordinator, status, imagen_url");
 
   if (error) {
     console.error("Error al cargar eventos:", error);

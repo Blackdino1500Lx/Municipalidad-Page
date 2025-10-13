@@ -904,8 +904,15 @@ line-height: 2.4rem;
     margin: 0 1rem 1rem;
     font-size: 0.95rem;
 }
+.blog-parrafo-extra {
+  margin-top: 1em;
+  line-height: 1.6;
+  text-align: justify;
+  font-size: 1.05rem;
+}
+
   
-.btn-view-more {
+.btn-view-more, .btn-view-more-blog {
     display: inline-block;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
@@ -915,13 +922,15 @@ line-height: 2.4rem;
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
+    border: none;
 }
+
   
-.btn-view-more:hover {
+.btn-view-more:hover, .btn-view-more-blog:hover {
     background-color:   #318a57;
 }
 
-.view-more{
+.view-more, .view-more-blog {
     display: flex;
     justify-content: center; 
     margin: 2rem 0;
@@ -954,7 +963,7 @@ line-height: 2.4rem;
         padding: 1rem 1.2rem;
     }
 
-    .btn-view-more {
+    .btn-view-more, .btn-view-more-blog {
         padding: 0.6rem 1.2rem;
         font-size: 0.95rem;
     }
@@ -981,7 +990,7 @@ line-height: 2.4rem;
             font-size: 0.85rem;
         }
 
-        .btn-view-more {
+        .btn-view-more, .btn-view-more-blog {
             font-size: 0.9rem;
             padding: 0.5rem 1rem;
         }
@@ -1027,10 +1036,10 @@ line-height: 2.4rem;
   border-radius: 6px;
   cursor: pointer;
   font-size: 15px;
-  margin-top: 20px;
+  margin-top: 20rem;
   width: 140px;
   display: block;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 .action-btn:hover {

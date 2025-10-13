@@ -103,3 +103,16 @@ rightArrow.addEventListener('click', () => {
 gallery.addEventListener('scroll', updateArrows);
 window.addEventListener('load', updateArrows);
 window.addEventListener('resize', updateArrows);
+
+
+//Conexion Base de datos
+
+//Enviar Comentarios
+/*const supabase = window.supabaseInstance;
+
+//Anadir Comentarios CAMBIAR NOMBRES
+function attachFormListener(formId, handler) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+  form.addEventListener('submit', handler);
+} */

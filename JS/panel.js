@@ -131,7 +131,7 @@ export async function mostrardatosBanner() {
 
 // Registrar formularios (si existen)
 subirConImagen({ formId: 'Form-Add-Event', campos: ['title', 'start', 'end', 'description', 'type', 'location', 'coordinator', 'status'], tabla: 'Eventos', campoImagen: 'imagen_url', inputImagenId: 'archivoimg', callback: mostrardatos });
-subirConImagen({ formId: 'Form-Add', campos: ['title', 'phar', 'phar2'], tabla: 'Blog', campoImagen: 'imagen_url', inputImagenId: 'archivoimg', callback: mostrardatosBlog });
+subirConImagen({ formId: 'Form-Add', campos: ['title', 'phar', 'phar2'], tabla: 'Blog', campoImagen: 'imagen_url', inputImagenId: 'archivoimg_blog', callback: mostrardatosBlog, }) ;
 subirConImagen({ formId: 'Form-Add-Banner', campos: ['name'], tabla: 'Banner', campoImagen: 'imagen_url', inputImagenId: 'banner-img', callback: mostrardatosBanner });
 
 // Borrar (si los forms existen)

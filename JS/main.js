@@ -11,8 +11,8 @@ async function fetchBanners() {
       console.error("Supabase no inicializado: db es null");
       return [];
     }
-
-    const { data: banners, error } = await db.from("Banner").select("*");
+//Cambiar nombre de Base de datos de "banner" a "Banner", se cambia nombre para probar fallback
+    const { data: banners, error } = await db.from("banner").select("*");
     if (error) {
       console.error("Error obteniendo banners:", error);
       return [];
@@ -42,7 +42,7 @@ function buildCarouselFromBanners(banners) {
     // Fallback visual si no hay banners
     const fallback = document.createElement("div");
     fallback.className = "noticia";
-    fallback.style.backgroundImage = "url('../assets/img/Escuela.png')";
+    fallback.style.backgroundImage = "url('../assets/img/Blog-Template/15_septiembre.jpg')";
     fallback.style.backgroundSize = "cover";
     fallback.style.backgroundPosition = "center";
     fallback.style.backgroundRepeat = "no-repeat";
@@ -98,7 +98,7 @@ function initCarouselBehavior() {
   }
 }
 
-function initBurger() {
+/*function initBurger() {
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".menu");
   if (!burger || !menu) return;
@@ -118,7 +118,7 @@ function initBurger() {
     });
   });
 }
-
+*/
 document.addEventListener("DOMContentLoaded", async () => {
   carrusel = document.querySelector(".noticias-carrusel");
   dotsContainer = document.querySelector(".dot-cont");
@@ -128,5 +128,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   buildCarouselFromBanners(banners);
   initCarouselBehavior();
-  initBurger();
+  //initBurger();
 });

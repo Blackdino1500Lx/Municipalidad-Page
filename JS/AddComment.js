@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Mostrar el modal
+  // Mostrar el modal centrado
   abrirModalBtn?.addEventListener('click', () => {
-    modal.style.display = 'block';
+    modal.style.display = 'flex'; // ✅ clave para centrar con flexbox
   });
 
   // Cerrar el modal
@@ -26,45 +26,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Cargar comentarios desde Supabase
- async function cargarComentarios() {
-  if (!contenedorComentarios) {
-    console.warn('Contenedor de comentarios no encontrado.');
-    return;
+  async function cargarComentarios() {
+    if (!contenedorComentarios) {
+      console.warn('Contenedor de comentarios no encontrado.');
+      return;
+    }
+
+    const { data, error } = await db
+      .from('Comentarios')
+      .select('User, Text, blog_id')
+      .eq('blog_id', blogId)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error al cargar comentarios:', error.message || error.details || error);
+      return;
+    }
+
+    console.log('Comentarios recibidos:', data);
+
+    contenedorComentarios.innerHTML = '';
+
+    if (!data || data.length === 0) {
+      contenedorComentarios.innerHTML = '<p>No hay comentarios aún.</p>';
+      return;
+    }
+
+    data.forEach(comentario => {
+      const card = document.createElement('div');
+      card.classList.add('review-card');
+      card.innerHTML = `
+        <div class="review-user">
+          <div class="avatar">👤</div>
+          <div class="name">${comentario.User}</div>
+        </div>
+        <p class="review-text">"${comentario.Text}"</p>
+      `;
+      contenedorComentarios.appendChild(card);
+    });
   }
 
-  const { data, error } = await db
-    .from('Comentarios')
-    .select('User, Text, blog_id')
-    .eq('blog_id', blogId)
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error('Error al cargar comentarios:', error.message || error.details || error);
-    return;
-  }
-
-  console.log('Comentarios recibidos:', data);
-
-  contenedorComentarios.innerHTML = '';
-
-  if (!data || data.length === 0) {
-    contenedorComentarios.innerHTML = '<p>No hay comentarios aún.</p>';
-    return;
-  }
-
-  data.forEach(comentario => {
-    const card = document.createElement('div');
-    card.classList.add('review-card');
-    card.innerHTML = `
-      <div class="review-user">
-        <div class="avatar">👤</div>
-        <div class="name">${comentario.User}</div>
-      </div>
-      <p class="review-text">"${comentario.Text}"</p>
-    `;
-    contenedorComentarios.appendChild(card);
-  });
-}
   // Enviar comentario
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();

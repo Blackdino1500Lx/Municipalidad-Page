@@ -1,147 +1,182 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel de Administración</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0"></script>
 </head>
 <body>
-  <h1>Panel de Administración</h1>
+    <h1>Panel de Administración</h1>
 
-  <div class="swich">
-    <label for="content-type">¿Qué deseas añadir?</label>
-    <select id="content-type">
-      <option value="evento">Evento</option>
-      <option value="blog">Blog</option>
-      <option value="banner">Banner</option>
-    </select>
-  </div>
-
-  <div class="div-forms">
-    <!-- Grupo Evento -->
-    <div class="form-group" id="group-evento" style="display: flex; flex-direction: column;">
-      <form id="Form-Add-Event">
-        <h2>Agregar Evento</h2>
-        <label for="title">Título</label>
-        <input type="text" id="title" name="title" required />
-        <label for="start">Fecha Inicio</label>
-        <input type="date" id="start" name="start" required />
-        <label for="end">Fecha de Finalización</label>
-        <input type="date" id="end" name="end" />
-        <label for="description">Descripción</label>
-        <input type="text" id="description" name="description" required />
-        <label for="type">Tipo de Evento</label>
-        <select id="type" name="type" required>
-          <option value="" disabled selected>Ninguno</option>
-          <option value="cultural">Cultural</option>
-          <option value="ambiental">Ambiental</option>
-          <option value="educativo">Educativo</option>
-          <option value="familiar">Familiar</option>
-          <option value="comercial">Comercial</option>
-          <option value="social">Social</option>
-          <option value="deportivo">Deportivo</option>
+    <div class="swich">
+        <label for="content-type">¿Qué deseas añadir?</label>
+        <select id="content-type">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="evento">Evento</option>
+            <option value="blog">Blog</option>
+            <option value="banner">Banner</option>
         </select>
-        <label for="location">Ubicación</label>
-        <input type="text" id="location" name="location" required />
-        <label for="coordinator">Coordinador</label>
-        <input type="text" id="coordinator" name="coordinator" required />
-        <label for="status">Estado del evento</label>
-        <select id="status" name="status" required>
-          <option value="pendiente">Pendiente</option>
-          <option value="confirmado">Confirmado</option>
-          <option value="cancelado">Cancelado</option>
-        </select>
-        <input type="file" id="archivoimg" accept="image/*" />
-        <label for="archivoimg" class="boton-subida">Subir imagen</label>
-        <img id="previewImg" style="max-width: 300px; display: none;" />
-        <button class="save" type="submit">Guardar Evento</button>
-      </form>
-
-      <form id="Form-Delete-Event">
-        <h2>Borrar Evento</h2>
-        <label for="deleteId">ID del Evento</label>
-        <input type="number" id="deleteId" name="deleteId" />
-        <label for="Name-Content">Nombre del Evento</label>
-        <input type="text" id="Name-Content" name="Name-Content" />
-        <div class="btns-delete-group">
-          <button type="submit">Borrar Evento</button>
-          <button id="Del-All-Event" type="submit">Borrar Todos</button>
-        </div>
-      </form>
     </div>
 
-    <!-- Grupo Blog -->
-    <div class="form-group" id="group-blog" style="display: none; flex-direction: column;">
-      <form id="Form-Add">
-        <h2>Agregar Blog</h2>
-        <label for="title">Título</label>
-        <input type="text" id="title" name="title" />
-        <label for="phar">Párrafo</label>
-        <input type="text" id="phar" name="phar" />
-        <label for="phar2">Párrafo 2</label>
-        <input type="text" id="phar2" name="phar2" />
-        <label for="archivoimg_blog">Imagen destacada</label>
-        <input type="file" id="archivoimg_blog" name="archivoimg_blog" accept="image/*" />
-        <label for="archivoimg_blog" class="boton-subida">Subir imagen destacada</label>
-        <img id="previewImg" style="max-width: 300px; display: none;" />
-        <label for="galeria_blog">Galería de imágenes</label>
-        <input type="file" id="galeria_blog" name="galeria_blog" multiple accept="image/*" />
-        <label for="galeria_blog" class="boton-subida">Subir galería</label>
-        <button class="save" type="submit">Guardar Blog</button>
-      </form>
+    <div class="div-forms">
+        <div class="form-group" id="group-evento" style="display: none;">
+            <form id="Form-Add-Event">
+                <h2>Agregar Evento</h2>
+                <label for="title">Título</label>
+                <input type="text" id="title" name="title" required />
+                <label for="start">Fecha Inicio</label>
+                <input type="date" id="start" name="start" required />
+                <label for="end">Fecha de Finalización</label>
+                <input type="date" id="end" name="end" />
+                <label for="description">Descripción</label>
+                <input type="text" id="description" name="description" required />
+                <label for="type">Tipo de Evento</label>
+                <select id="type" name="type" required>
+                    <option value="" disabled selected>Ninguno</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="ambiental">Ambiental</option>
+                    <option value="educativo">Educativo</option>
+                    <option value="familiar">Familiar</option>
+                    <option value="comercial">Comercial</option>
+                    <option value="social">Social</option>
+                    <option value="deportivo">Deportivo</option>
+                </select>
+                <label for="location">Ubicación</label>
+                <input type="text" id="location" name="location" required />
+                <label for="coordinator">Coordinador</label>
+                <input type="text" id="coordinator" name="coordinator" required />
+                <label for="status">Estado del evento</label>
+                <select id="status" name="status" required>
+                    <option value="pendiente">Pendiente</option>
+                    <option value="confirmado">Confirmado</option>
+                    <option value="cancelado">Cancelado</option>
+                </select>
+                <input type="file" id="archivoimg" accept="image/*" />
+                <label for="archivoimg" class="boton-subida">Subir imagen</label>
+                <img id="previewImg" style="max-width: 300px; display: none;" />
+                <button class="save" type="submit">Guardar Evento</button>
+            </form>
 
-      <form id="Form-Delete-Blog">
-        <h2>Borrar Blog</h2>
-        <label for="deleteIdBlog">ID del Blog</label>
-        <input type="number" id="deleteIdBlog" name="deleteIdBlog" />
-        <label for="Name-Content-Blog">Nombre del Blog</label>
-        <input type="text" id="Name-Content-Blog" name="Name-Content-Blog" />
-        <div class="btns-delete-group">
-          <button type="submit">Borrar Blog</button>
-          <button id="Del-All-Blog" type="submit">Borrar Todos</button>
+            <form id="Form-Delete-Event">
+                <h2>Borrar Evento</h2>
+                <label for="deleteId">ID del Evento</label>
+                <input type="number" id="deleteId" name="deleteId" />
+                <label for="Name-Content">Nombre del Evento</label>
+                <input type="text" id="Name-Content" name="Name-Content" />
+                <div class="btns-delete-group">
+                    <button type="submit">Borrar Evento</button>
+                    <button id="Del-All-Event" type="submit">Borrar Todos</button>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
 
-    <!-- Grupo Banner -->
-    <div class="form-group" id="group-banner" style="display: none; flex-direction: column;">
-      <form id="Form-Add-Banner">
-        <h2>Agregar Banner</h2>
-        <label for="name">Nombre del Banner</label>
-        <input type="text" id="name" name="name" />
-        <input type="file" id="banner-img" accept="image/*" />
-        <label for="banner-img" class="boton-subida">Subir imagen</label>
-        <img id="previewBannerImg" style="max-width: 300px; display: none;" />
-        <button class="save" type="submit">Guardar Banner</button>
-      </form>
+        <div class="form-group" id="group-blog" style="display: none;">
+            <form id="Form-Add">
+                <h2>Agregar Blog</h2>
+                <label for="title">Título</label>
+                <input type="text" id="title" name="title" />
+                <label for="phar">Párrafo</label>
+                <input type="text" id="phar" name="phar" />
+                <label for="phar2">Párrafo 2</label>
+                <input type="text" id="phar2" name="phar2" />
+                <label for="archivoimg_blog">Imagen destacada</label>
+                <input type="file" id="archivoimg_blog" name="archivoimg_blog" accept="image/*" />
+                <label for="archivoimg_blog" class="boton-subida">Subir imagen destacada</label>
+                <img id="previewImg" style="max-width: 300px; display: none;" />
+                <label for="galeria_blog">Galería de imágenes</label>
+                <input type="file" id="galeria_blog" name="galeria_blog" multiple accept="image/*" />
+                <label for="galeria_blog" class="boton-subida">Subir galería</label>
+                <button class="save" type="submit">Guardar Blog</button>
+            </form>
 
-      <form id="Form-Delete-Banner">
-        <h2>Borrar Banner</h2>
-        <label for="deleteBannerId">ID del Banner</label>
-        <input type="text" id="deleteBannerId" name="deleteBannerId" />
-        <label for="deleteBannerName">Nombre del Banner</label>
-        <input type="text" id="deleteBannerName" name="deleteBannerName" />
-        <div class="btns-delete-group">
-          <button type="submit">Borrar Banner</button>
-          <button id="Del-All-Banner" type="submit">Borrar Todos</button>
+            <form id="Form-Delete-Blog">
+                <h2>Borrar Blog</h2>
+                <label for="deleteIdBlog">ID del Blog</label>
+                <input type="number" id="deleteIdBlog" name="deleteIdBlog" />
+                <label for="Name-Content-Blog">Nombre del Blog</label>
+                <input type="text" id="Name-Content-Blog" name="Name-Content-Blog" />
+                <div class="btns-delete-group">
+                    <button type="submit">Borrar Blog</button>
+                    <button id="Del-All-Blog" type="submit">Borrar Todos</button>
+                </div>
+            </form>
         </div>
-      </form>
+
+        <div class="form-group" id="group-banner" style="display: none;">
+            <form id="Form-Add-Banner">
+                <h2>Agregar Banner</h2>
+                <label for="name">Nombre del Banner</label>
+                <input type="text" id="name" name="name" />
+                <input type="file" id="banner-img" accept="image/*" />
+                <label for="banner-img" class="boton-subida">Subir imagen</label>
+                <img id="previewBannerImg" style="max-width: 300px; display: none;" />
+                <button class="save" type="submit">Guardar Banner</button>
+            </form>
+
+            <form id="Form-Delete-Banner">
+                <h2>Borrar Banner</h2>
+                <label for="deleteBannerId">ID del Banner</label>
+                <input type="text" id="deleteBannerId" name="deleteBannerId" />
+                <label for="deleteBannerName">Nombre del Banner</label>
+                <input type="text" id="deleteBannerName" name="deleteBannerName" />
+                <div class="btns-delete-group">
+                    <button type="submit">Borrar Banner</button>
+                    <button id="Del-All-Banner" type="submit">Borrar Todos</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+     <div id="preview">
+        </div>
 
-  <script>
-    document.getElementById('content-type').addEventListener('change', function () {
-      const tipo = this.value;
-      document.getElementById('group-evento').style.display = (tipo === 'evento') ? 'flex' : 'none';
-      document.getElementById('group-blog').style.display = (tipo === 'blog') ? 'flex' : 'none';
-      document.getElementById('group-banner').style.display = (tipo === 'banner') ? 'flex' : 'none';
-    });
-  </script>
+    <script>
+        const groupEvento = document.getElementById('group-evento');
+        const groupBlog = document.getElementById('group-blog');
+        const groupBanner = document.getElementById('group-banner');
+        
+        // Función para manejar la visibilidad de los formularios y cargar el preview
+        function handleContentTypeChange() {
+            // Asegúrate de que las funciones mostrardatos* de panel.js estén cargadas en el window
+            if (typeof window.mostrardatos !== 'function') {
+                console.warn("Las funciones de visualización aún no están cargadas desde panel.js.");
+                // Retrasa la ejecución si es necesario (ej. para entornos sin 'type="module"')
+                // Para el propósito actual, asume que panel.js se cargará después de este script.
+            }
+            
+            const tipo = this.value || document.getElementById('content-type').value;
 
-  <script type="module" src="../JS/supabase.js"></script>
-  <script type="module" src="../JS/panel.js"></script>
+            // 1. OCULTAR TODOS LOS GRUPOS DE FORMULARIOS
+            groupEvento.style.display = 'none';
+            groupBlog.style.display = 'none';
+            groupBanner.style.display = 'none';
+            
+            // 2. MOSTRAR SOLO EL GRUPO SELECCIONADO Y CARGAR EL PREVIEW
+            if (tipo === 'evento') {
+                groupEvento.style.display = 'flex';
+                if (window.mostrardatos) window.mostrardatos();
+            } else if (tipo === 'blog') {
+                groupBlog.style.display = 'flex';
+                if (window.mostrardatosBlog) window.mostrardatosBlog();
+            } else if (tipo === 'banner') {
+                groupBanner.style.display = 'flex';
+                if (window.mostrardatosBanner) window.mostrardatosBanner();
+            } else {
+                 // Si no hay opción seleccionada, limpia el preview
+                 const contenedor = document.getElementById("preview");
+                 if(contenedor) contenedor.innerHTML = '';
+            }
+        }
+        
+        document.getElementById('content-type').addEventListener('change', handleContentTypeChange);
+        
+        // Opcional: Cargar la vista inicial si hay una opción por defecto
+        document.addEventListener('DOMContentLoaded', handleContentTypeChange);
+    </script>
+
+    <script type="module" src="../JS/supabase.js"></script>
+    <script type="module" src="../JS/panel.js"></script>
 </body>
 </html>

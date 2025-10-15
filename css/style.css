@@ -292,6 +292,13 @@ transition: background 0.3s;
 background: #333;
 }
 
+.titulo-main1 {
+  font-size: 3rem;
+  font-weight: normal;
+  text-align: center;
+  margin: 5rem 0 2rem 0;
+}
+
 /*nuestro canton*/
 
 .canton {

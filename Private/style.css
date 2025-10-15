@@ -25,8 +25,20 @@
 /* Espacio entre formularios de cada grupo */
 .form-group {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Esto los alinea lado a lado */
     gap: 2rem;
+}
+
+/* Selector general para formularios */
+form {
+    display: flex;
+    flex-direction: column; /* Esto mantiene los elementos internos del formulario en columna */
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    width: 25rem;
+    border-radius: 1rem;
 }
 body {
     font-family: Arial, sans-serif;
@@ -39,26 +51,15 @@ h1 {
     text-align: center;
 }
 .div-forms{
-display: flex;
-align-items: baseline;
-justify-content: space-evenly;
-background-color: #97b8cf;
-padding: 3rem;
-gap: 10rem;
-
-
-}
-
-form {
     display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    background: #f9f9f9;
-    width: 25rem;
-    border-radius: 1rem;
+    align-items: flex-start; 
+    justify-content: space-evenly;
+    background-color: #97b8cf;
+    padding: 3rem;
+    gap: 10rem;
 }
+
+
 .Btns{
     display: flex;
     flex-direction: row;
@@ -101,7 +102,7 @@ input[type="file"] {
     display: none;
 }
 /* Botón de borrar todo (estilo original) */
-#Del-All, #Del-All-Event, #Del-All-Blog {
+#Del-All, #Del-All-Event, #Del-All-Blog, #Del-All-Banner {
     background-color: #cc0000;
     width: 10rem;
     padding: 8px;
@@ -113,7 +114,7 @@ input[type="file"] {
     margin-top: 10px;
 }
 
-#Del-All:hover, #Del-All-Event:hover, #Del-All-Blog:hover {
+#Del-All:hover, #Del-All-Event:hover, #Del-All-Blog:hover, #Del-All-Banner:hover {
     background-color: #a30000;
 }
 
@@ -144,37 +145,30 @@ form[id^="Form-Delete"] {
     background-color: #005fa3;
 }
 
+
+/* Contenedor principal de las tarjetas */
 #preview{
     display: flex;
-    flex-wrap:wrap ;
-    
+    flex-wrap: wrap; 
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    padding: 2rem 0;
+    gap: 20px; /* Espacio entre las tarjetas */
 }
 
-.img-pre{
-    max-width: 200px;
-}
-
-.titulo-pre{
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.text1, .text2{
-    text-align: center;
-    width:100%;
-    font-size: 16px;
-    color: #333;
-}
-
-
+/* Estilo para cada tarjeta (ELEMENTO CRÍTICO PARA LA COLUMNA) */
 .card {
     background-color: white;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding: 1rem;
-    margin: 1rem;
-    width: 400px;
+    width: 300px; /* Ancho fijo para mantener la uniformidad */
     text-align: center;
+    margin: 1rem;
+    
+    /* PROPIEDADES CLAVE: FUERZA EL APILAMIENTO EN COLUMNA */
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente (ID, Título, Imagen, Detalles) */
+    align-items: center; /* Centra los elementos (imagen, título) dentro de la tarjeta */
 
     transition: transform 0.3s ease;
 }
@@ -183,12 +177,59 @@ form[id^="Form-Delete"] {
     transform: scale(1.05);
 }
 
+/* Estilo específico para el ID (alineado a la izquierda para destacar) */
+.id-pre {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0 0 5px 0;
+    width: 100%; /* Ocupa todo el ancho */
+    text-align: left; /* Alinea el ID a la izquierda */
+}
+
+/* Estilo para el título */
+.titulo-pre{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Estilo para la imagen */
+.img-pre{
+    max-width: 100%; /* Asegura que no se salga del contenedor de 300px */
+    height: auto;
+    border-radius: 6px;
+    margin: 10px 0;
+}
+
+/* Contenedor para los detalles del Evento/Blog */
+.card-details {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+.card-details p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Estilos de texto antiguos (ajustados para consistencia) */
+.text1, .text2{
+    text-align: left; /* Alineación forzada a la izquierda para la columna */
+    width:100%;
+    font-size: 16px;
+    color: #333;
+    margin: 3px 0;
+}
+
+
 /*Login*/
 .pass{
-align-content: center;
-margin: 0 auto;
+    align-content: center;
+    margin: 0 auto;
 }
 .btn-log{
     margin: 0 auto;
 }
-

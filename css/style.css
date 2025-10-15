@@ -387,6 +387,11 @@ transform: scale(1.1) !important;
   border-radius: 10px;
   padding: 1rem;
   font-size: 1.5rem;
+  
+}
+.btn-lugar{
+  text-decoration: none;
+  color: #000;
 }
 
 .btn-lugar:hover {

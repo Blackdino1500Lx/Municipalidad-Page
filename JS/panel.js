@@ -23,10 +23,27 @@ function subirConImagen({ formId, campos, tabla, campoImagen = "imagen_url", inp
         const form = e.currentTarget;
         const datos = {};
 
-        // 1. Recoger datos de los campos
+        // 1. Recoger datos de los campos Y APLICAR CORRECCIÓN DE ZONA HORARIA PARA EVENTOS
         for (const campo of campos) {
             const input = form.querySelector(`#${campo}, [name="${campo}"]`);
-            datos[campo] = input ? input.value : "";
+            let valor = input ? input.value : "";
+
+            // ⭐ CORRECCIÓN DE FECHA/ZONA HORARIA PARA CAMPOS 'start' y 'end' ⭐
+            // Si el campo es 'start' o 'end' y solo contiene la fecha (YYYY-MM-DD),
+            // le añadimos el mediodía ('T12:00:00'). Esto asegura que el desfase de 
+            // la base de datos a UTC no mueva la fecha al día anterior.
+            if ((campo === 'start' || campo === 'end') && valor && tabla === "Eventos") {
+                // Si el valor es solo YYYY-MM-DD
+                if (valor.length === 10 && !valor.includes('T')) {
+                    valor = valor + 'T12:00:00'; 
+                }
+                // Si ya incluye tiempo (datetime-local), no se necesita el 'T12:00:00'
+                // en su lugar, se podría ajustar el string para que se guarde localmente, 
+                // pero añadir la hora central es la solución más simple para el desfase diario.
+            }
+            // ⭐ FIN CORRECCIÓN DE FECHA ⭐
+
+            datos[campo] = valor;
         }
 
         // 2. Subir imagen principal
@@ -94,7 +111,7 @@ function subirConImagen({ formId, campos, tabla, campoImagen = "imagen_url", inp
 }
 
 // ------------------------------------------
-//  FUNCIONES DE REGISTRO/INSERCIÓN
+//  FUNCIONES DE REGISTRO/INSERCIÓN
 // ------------------------------------------
 
 subirConImagen({
@@ -253,9 +270,6 @@ document.getElementById("Del-All-Banner")?.addEventListener("click", async funct
 // ====================================================================
 // 🧾 FUNCIONES PARA MOSTRAR DATOS EN EL PANEL (PREVIEW CORREGIDO)
 // ====================================================================
-
-// Nota: Las funciones de preview han sido modificadas para generar el HTML
-// con la estructura que solicitaste (ID arriba, Título, Imagen, Detalles)
 
 export async function mostrardatos() {
     window.mostrardatos = mostrardatos;

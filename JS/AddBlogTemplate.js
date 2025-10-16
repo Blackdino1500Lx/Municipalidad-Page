@@ -17,12 +17,32 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.querySelector('.main-title').textContent = blog.title || 'Sin título';
   
-  // 👇 MODIFICACIÓN: Aplicar max-height solo a la imagen principal
+  // 👇 MODIFICACIÓN CLAVE: Lógica de Responsive con JavaScript
   const featureImgEl = document.querySelector('.feature-image img');
   featureImgEl.src = blog.imagen_url || '../assets/img/placeholder.jpg';
-  featureImgEl.style.maxHeight = '550px'; // Establece la altura máxima (ajusta este valor)
-  featureImgEl.style.objectFit = 'cover';  // Opcional: Para asegurar que se recorte bien
- 
+  
+  featureImgEl.style.width = '100%';
+  featureImgEl.style.objectFit = 'cover';
+
+  // Define el punto de quiebre (breakpoint) para "pantalla grande"
+  const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+  // Función para aplicar la altura correcta
+  const setFeatureImageHeight = (mql) => {
+    if (mql.matches) {
+      // Pantalla grande (>= 768px)
+      featureImgEl.style.height = '550px';
+    } else {
+      // Pantalla pequeña (< 768px)
+      featureImgEl.style.height = '300px';
+    }
+  };
+
+  // Ejecuta la función al cargar y escucha los cambios de tamaño de pantalla
+  setFeatureImageHeight(mediaQuery);
+  mediaQuery.addEventListener('change', setFeatureImageHeight);
+  // FIN DE LA MODIFICACIÓN CLAVE
+ 
   const contenidoEl = document.querySelector('.article-content');
   (blog.phar || '').split('\n').filter(p => p.trim()).forEach(texto => {
     const p = document.createElement('p');
@@ -52,7 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // ✅ Cargar galería de imágenes
+  // Resto del código...
   const galeriaEl = document.querySelector('.image-gallery');
   const leftArrow = document.querySelector('.gallery-arrow.left');
   const rightArrow = document.querySelector('.gallery-arrow.right');
@@ -78,8 +98,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       img.alt = imgData.alt_text || `Imagen ${index + 1}`;
       img.classList.add('gallery-thumb');
       img.style.cursor = 'pointer';
-
-      // Aquí no se aplica ningún estilo, manteniendo el comportamiento original de las miniaturas.
       
       // ✅ Reemplazar imagen principal al hacer clic
       img.addEventListener('click', () => {
